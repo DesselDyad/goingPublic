@@ -1,42 +1,70 @@
-/* #navbar-collapse {
-    background-color: rgba(84,84,84,1);
-    border-bottom: 5px solid rgba(34,34,34,1);
-    border-right: 5px solid rgba(34,34,34,1);
-    border-left: 5px solid rgba(34,34,34,1);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-#header_list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-}
-
-#header_list li a {
-    border: 5px solid rgba(34,34,34,1);
-    background-color: rgba(54,54,54,1);
-    border-radius: 5px;
-    color: rgba(255,128,0,1);
-    font-weight: bold;
-    margin: 10px;
-    padding: 10px;
-}
-
-#header_list li a:hover {
-    background-color: rgba(94,94,94,1);
-    border: 5px solid rgba(54,54,54,1);
-} */
-
 header a {
-    color: white!important;
+    color: white !important;
+    padding: 10px;
+    font-weight: bold;
+
 }
 
-.profile_dropdown_list {
+.navbar-dark .navbar-nav .nav-link:hover {
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    background-color: rgba(34,34,34,1) !important;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu li {
+    padding: 0;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu li,
+.navbar-expand-md .navbar-nav .dropdown-menu li a:hover {
+    color: rgba(34,34,34,1) !important;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.override_background {
+    color: rgba(255,255,255,1);
+    background-color: rgba(34,34,34,0) !important;
+}
+
+.override_background:hover {
+    color: rgba(255,255,255,1) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+    background-color: rgba(34,34,34,1) !important;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.dropdown-item .nav-link {
+}
+
+.dropdown-item:hover {
+    color: rgba(34,34,34,1) !important;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: white;
+    /* text-decoration: none; */
     background-color: rgba(34,34,34,1);
 }
 
-.profile_dropdown_list a:hover, .profile_dropdown_list li:hover {
-    background-color: rgba(74,74,74,1);
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    background-color: rgba(124,124,124,1) !important;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.dropdown-menu {
+    border-bottom-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
 }
