@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <% include ../partials/head %>
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                    <h2 class="page-header">Search</h2>
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                    <h2 id="users_search_title">
+                        <span class="glyphicon glyphicon-chevron-down">
+                        </span>
+                        Users
+                    </h2>
+                    <section class="users_search_section">
+                        <% if(typeof search != 'undefined') { %>
+                            <% if(search.users.length > 0) { %>
+                                <% search.users.forEach(user => { %>
+                                    <a href=<%= '/user/showProfile/' + user.id %> >
+                                        <%= user.local.account.username %>
+                                    </a>
+                                <% }) %>
+                            <% } %>
+                        <% } %>
+                    </section>
+                    <h2 id="locations_search_title">
+                        <span class="glyphicon glyphicon-chevron-down">
+                        </span>
+                        Locations
+                    </h2>
+                    <section class="locations_search_section hidden">
+                        <% if(typeof search != 'undefined') { %>
+                            <p>
+                            </p>
+                        <% } %>
+                    </section>
+                    <h2 id="fish_species_search_title">
+                        <span class="glyphicon glyphicon-chevron-down">
+                        </span>
+                        Fish Species
+                    </h2>
+                    <section class="fish_species_search_section hidden">
+                        <% if(typeof search != 'undefined') { %>
+                            <p>
+                            </p>
+                        <% } %>
+                    </section>
+            </div>
+        </div>
+        <% include ../partials/footer %>
+    </div>
+    <!-- /container -->
+</body>
+
+</html>

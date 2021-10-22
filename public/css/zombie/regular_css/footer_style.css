@@ -1,0 +1,34 @@
+
+/* footer stuff */
+footer {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    /* background-color: rgba(34,34,34,0.8);
+    color: white; */
+    font-weight: bold;
+}
+
+#newsletter,
+#contact_info,
+#social_media,
+#tm {
+    padding: 10px;
+}
+
+#tm {
+    text-align: center;
+}
+
+#contact_info .fa,
+#social_media .fa {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+#social_media .fa {
+    color: orange;
+}
+
+footer .fa {
+    color: orange;
+}

@@ -1,0 +1,275 @@
+
+#newsletter {
+    text-align: center;
+}
+
+#newsletter form p {
+    display: inline;
+}
+
+
+#register_btn  {
+    color: black;
+}
+
+.loginForm {
+    padding-bottom: 20px;
+}
+
+#login_button {
+    height: 200%;
+}
+
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    height: 75px !important;
+    width: 250px;
+    font-size: 150%;
+}
+
+.loginForm label {
+    font-size: 150%;
+    width: 200px;
+}
+
+.loginForm input[type="text"]:focus,
+.loginForm input[type="password"]:focus {
+    /* border: 5px solid rgb(170, 58, 58); */
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    height: 50px;
+}
+
+#register_user_form {
+    padding-bottom: 20px;
+}
+
+#register_user_form button {
+    font-size: 200%;
+}
+
+#register_user_form h1 {
+    color: black !important;
+}
+
+.check_result {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+#login_button {
+    height: 200%;
+}
+
+#register_user_form input[type="text"],
+#register_user_form input[type="email"],
+#register_user_form input[type="password"] {
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    height: 75px !important;
+    width: 400px;
+    font-size: 150%;
+}
+
+#register_user_form label {
+    font-size: 150%;
+    width: 200px;
+}
+
+#register_user_form input[type="text"]:focus,
+#register_user_form input[type="password"]:focus {
+    /* border: 5px solid rgb(170, 58, 58); */
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    height: 50px;
+}
+
+#newsletter input[type="text"],
+#newsletter input[type="email"] {
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    height: 50px;
+}
+
+input[type="number"]:invalid:focus,
+input[type="text"]:invalid:focus,
+input[type="email"]:invalid:focus, 
+input[type="password"]:invalid:focus {
+   box-shadow:0 0 5px red,0 0 5px red,0 0 5px red,0 0 5px red,0 0 5px red,0 0 5px red,0 0 5px red,0 0 5px red;
+}
+
+
+input[type="number"]:valid:focus,
+input[type="text"]:valid:focus,
+input[type="email"]:valid:focus, 
+input[type="password"]:valid:focus {
+    box-shadow: none;
+    box-shadow:0 0 5px green,0 0 5px green,0 0 5px green,0 0 5px green,0 0 5px green,0 0 5px green,0 0 5px green,0 0 5px green;
+}
+
+footer a {
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+}
+
+#newsletter button, .loginForm button {
+    border-radius: 5px;
+    font-size: 125%;
+    color: black;
+    height: 30px;
+}
+
+.my_contact_form button:hover {
+    color: white;
+    background-color: black;
+}
+
+.my_contact_form button {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    font-size: 250%;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-left: 200px;
+    border-radius: 5px;
+    border: 3px solid black;
+}
+
+.my_contact_form textarea {
+    background-color: white;
+    color: black;
+    width: 500px;
+    height: 300px;
+    font-size: 200%;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+.my_contact_form label {
+    font-weight: bold;
+    font-size: 150%;
+    width: 200px;
+}
+
+.my_contact_form input[type="text"],
+.my_contact_form input[type="email"] {
+    height: 75px;
+    width: 450px;
+    font-weight: bold;
+    font-size: 125%;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+input, button {
+    background-color: white;
+}
+
+.profile_p_section input, .password_form input {
+    color: white;
+    background-color: black;
+}
+
+.option_a {
+    display: block;
+}
+
+#srv_response, #newsletter_srv_response {
+    background-color: rgba(34,34,34,0.8);
+    color: orange;
+    font-weight: bold;
+    font-size: 200%;
+    padding: 20px;
+    margin: 20px;
+}
+
+#newsletter_form input, button {
+    color: black;
+}
+#newsletter_div h2 {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.pw_form label,
+.pw_form p,
+.user_main p {
+    color: white;
+    font-weight: bold;
+}
+#newsletter_form input {
+    width: 190px;
+}
+#newsletter_form input,
+.pw_form input {
+    color: black;
+    font-weight: bold;
+}
+.pw_form {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login_err_span {
+    color: black;
+    font-weight: bold;
+}
+.login_err_span a {
+    color: orange;
+}
+
+#newsletter_form input, .pw_form input, #newsletter_form label, .pw_form label, #newsletter_form button, .pw_form button {
+    padding: 10px;
+    margin: 10px;
+}
+#newsletter_form input, .pw_form input, #newsletter_form button, .pw_form button {
+    border-radius: 10px;
+}
+.center_p {
+    width: 15%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.add_subscriber_section input {
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.error_msg_span {
+    color: red;
+    font-weight: bold;
+}
+
+#contact_form select, #contact_form option, #contact_form button, #contact_form input, #contact_form textarea, .sorting_hat {
+    font-weight: bold;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.sorting_hat {
+    color: black;
+}
+
+#contact_form button:hover {
+    background-color: black;
+}

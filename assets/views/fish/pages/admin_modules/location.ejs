@@ -1,0 +1,109 @@
+<div class="locations_div col-xs-12 hidden">
+    <div class="row">
+        <button class="add_location_btn">Add Location </button>
+            <% if(typeof(add_location_body) != 'undefined') { %>
+                <div class="add_location_div">
+            <% } else { %>
+                <div class="add_location_div hidden">
+            <% } %>
+                <form id="new_location_form" method="post" action="/admin/location/addLocation" enctype="multipart/form-data" novalidate>
+                    <% if(typeof(add_location_body) != 'undefined') { %>
+                        <% if(add_location_body) { %>
+                            <section class="add_location_section">
+                                <hr>
+                                <p>
+                                    <label for="name">Name: </label>
+                                    <input name="name" type="text" id="name" placeholder="Name" minlength="5" maxlength="50" value='<%= add_location_body.name %>' required autofocus>
+                                </p>
+                                <p>
+                                    <label for="location_description">Description: </label>
+                                    <input name="description" type="text" id="location_description" placeholder="Description" minlength="5" maxlength="50" value='<%= add_location_body.description %>' required>
+                                </p>
+                                <p>
+                                    <label for="location_external_ref">External reference: </label>
+                                    <input name="external_ref" type="text" id="location_external_ref" placeholder="External reference" minlength="5" maxlength="50" value='<%= add_location_body.external_ref %>'>
+                                </p>
+                                <div class="admin_img_div form-group">
+                                    <label class="fish_img_label" >Upload Picture</label>
+                                    <input id="location_images" name="location_images" type="file" onchange="previewLocationFiles()" accept="image/gif, image/jpeg, image/png" multiple>
+                                    <div id="location_preview"></div>
+                                </div>
+                                <button type="submit">Add</button>
+                            </section>
+                        <% } %>
+                    <% } else { %>
+                        <section class="add_location_section">
+                            <hr>
+                            <p>
+                                <label for="name">Name: </label>
+                                <input name="name" type="text" id="name" placeholder="Name" minlength="5" maxlength="50" required autofocus>
+                            </p>
+                            <p>
+                                <label for="location_description">Description: </label>
+                                <input name="description" type="text" id="location_description" placeholder="Description" minlength="5" maxlength="50" required>
+                            </p>
+                            <p>
+                                <label for="location_external_ref">External reference: </label>
+                                <input name="external_ref" type="text" id="location_external_ref" placeholder="External reference" minlength="5" maxlength="50">
+                            </p>
+                            <div class="admin_img_div form-group">
+                                <label class="location_img_label" >Upload Picture</label>
+                                <input id="location_images" name="location_images" type="file" onchange="previewLocationFiles()" accept="image/gif, image/jpeg, image/png" multiple>
+                                <div id="location_preview"></div>
+                            </div>
+                            <button type="submit">Add</button>
+                        </section>
+                    <% } %>
+                </form>
+            </div>
+            <div class="table_wrapper" class="col-xs-12">
+                <h2 id="location_title">Locations</h2>
+                <table id="locations_table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Operation
+                            </th>
+                            <th>
+                                Images
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                External Reference
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% locations.forEach(location => { %>
+                            <tr>
+                                <td>
+                                    <button class="delete glyphicon glyphicon-remove" id=<%= location.id %> onclick="delete_location(this.id)"></button>
+                                    <button class="wrench glyphicon glyphicon-wrench" id=<%= location.id %> onclick="edit_location(this.id)"></button>
+                                    <button class="wrench glyphicon glyphicon-picture" id=<%= location.id %> onclick="edit_location_images(this.id)"></button>
+                                </td>
+                                <td>
+                                    <% location.images.forEach(img => { %>
+                                        <img src=<%='/img/fish/locations/' + img %> title=<%='/img/' + img %> alt=<%='/img/' + img %>>
+                                    <% }) %>
+                                </td>
+                                <td>
+                                    <%= location.name %>
+                                </td>
+                                <td>
+                                    <%= location.description %>
+                                </td>
+                                <td>
+                                    <%= location.external_ref %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,42 @@
+/* #navbar-collapse {
+    background-color: rgba(84,84,84,1);
+    border-bottom: 5px solid rgba(34,34,34,1);
+    border-right: 5px solid rgba(34,34,34,1);
+    border-left: 5px solid rgba(34,34,34,1);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#header_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#header_list li a {
+    border: 5px solid rgba(34,34,34,1);
+    background-color: rgba(54,54,54,1);
+    border-radius: 5px;
+    color: rgba(255,128,0,1);
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+}
+
+#header_list li a:hover {
+    background-color: rgba(94,94,94,1);
+    border: 5px solid rgba(54,54,54,1);
+} */
+
+header a {
+    color: white!important;
+}
+
+.profile_dropdown_list {
+    background-color: rgba(34,34,34,1);
+}
+
+.profile_dropdown_list a:hover, .profile_dropdown_list li:hover {
+    background-color: rgba(74,74,74,1);
+}

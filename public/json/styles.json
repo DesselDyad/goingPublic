@@ -1,0 +1,19 @@
+{
+    "styles": [
+        {
+            "id": 0,
+            "name": "dark",
+            "link": "dark.css"
+        },
+        {
+            "id": 1,
+            "name": "blue",
+            "link": "blue.css"
+        },
+        {
+            "id": 2,
+            "name": "red",
+            "link": "red.css"
+        }
+    ]
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<% include ../../partials/head %>
+
+    <body>
+        <% include ../../partials/header %>
+            <div class="container profile_container">
+                <div class="row">
+                    <p>
+                        <% include ../../partials/locals_errors %>
+                        <% include ../../partials/form_errors %>
+                    </p>
+                    <% if(user) { %>
+                    <div class="profile_div">
+                        <div class="row">
+                            <div class="social_div col-xs-12">
+                                <h2>Social Networking: </h2>
+                                <div class="row">
+                                    <% if(user.facebook != 'null') { %>
+                                        <div class="col-xs-12 col-md-6 social_sub_div">
+                                            <h2>FaceBook: </h2>
+                                            <div>
+                                                <label>FaceBook Name: </label>
+                                                <span>
+                                                    <%= user.facebook.name %>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <label>FaceBook E-mail: </label>
+                                                <span>
+                                                    <%= user.facebook.email %>
+                                                </span>
+                                                <div>
+                                                    <label>FaceBook Image: </label>
+                                                    <img src=<%= user.facebook.profile_picture %>>
+                                                </div>
+                                            </div>
+                                            <a href="/unlink/facebook" class="btn btn-danger">
+                                                <span class="fa fa-facebook">
+                                                    
+                                                </span>
+                                                Unink Facebook From Your Account
+                                            </a>
+                                        </div>
+                                    <% } else { %>
+                                        <div class="col-xs-12 col-md-6 social_sub_div">
+                                            <h2>FaceBook: </h2>
+                                            <a href="/connect/facebook" class="btn btn-primary">
+                                                <span class="fa fa-facebook">
+                                                    
+                                                </span>
+                                                Link Facebook To Your Account
+                                            </a>
+                                        </div>
+                                    <% } %>
+                                    <% if(user.google != 'null') { %>
+                                        <div class="col-xs-12 col-md-6 social_sub_div">
+                                            <h2>Google: </h2>
+                                            <div>
+                                                <label>Google Name: </label>
+                                                <span>
+                                                    <%= user.google.name %>
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <label>Google E-mail: </label>
+                                                <span>
+                                                    <%= user.google.email %>
+                                                </span>
+                                            </div>
+                                            <a href="/unlink/google" class="btn btn-danger">
+                                                <span class="fa fa-google">
+                        
+                                                </span>
+                                                Unlink Google From Your Account
+                                            </a>
+                                        </div>
+                                    <% } else { %>
+                                        <div class="col-xs-12 col-md-6 social_sub_div">
+                                            <h2>Google: </h2>
+                                            <a href="/connect/google" class="btn btn-danger">
+                                                <span class="fa fa-google">
+                        
+                                                </span>
+                                                Link Google To Your Account
+                                            </a>
+                                        </div>
+                                    <% } %>
+                                    <% if(user.github != 'null') { %>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6 social_sub_div">
+                                                <h2>GitHub: </h2>
+                                                <div>
+                                                    <label>GitHub Name: </label>
+                                                    <span>
+                                                        <%= user.github.name %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub E-mail: </label>
+                                                    <span>
+                                                        <%= user.github.email %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Profile: </label>
+                                                    <a href=<%= user.github.profile_url %>>
+                                                        <%= user.github.name %>
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <img src=<%= user.github.profile_img %> title=<%= user.github.profile_img %> alt=<%= user.github.profile_img %> width="150">
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Followers: </label>
+                                                    <span>
+                                                        <%= user.github.followers %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>Following on GitHube: </label>
+                                                    <span>
+                                                        <%= user.github.following %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Gists: </label>
+                                                    <span>
+                                                        <%= user.github.gists %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Public Repositories: </label>
+                                                    <span>
+                                                        <%= user.github.repos %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>Your Location: </label>
+                                                    <span>
+                                                        <%= user.github.location %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Biography: </label>
+                                                    <span>
+                                                        <%= user.github.bio %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Created At: </label>
+                                                    <span>
+                                                        <%= user.github.created_at %>
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <label>GitHub Updated At: </label>
+                                                    <span>
+                                                        <%= user.github.updated_at %>
+                                                    </span>
+                                                </div>
+                                                <a href="/unlink/github" class="btn btn-danger">
+                                                    <span class="fa fa-github">
+                        
+                                                    </span>
+                                                    Unlink GitHub From Your Account
+                                                </a>
+                                            </div>
+                                        </div>
+                                    <% } else { %>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6 social_sub_div">
+                                                <h2>GitHub: </h2>
+                                                <a href="/connect/github" class="btn btn-primary">
+                                                    <span class="fa fa-github">
+                        
+                                                    </span>
+                                                    Link GitHub To Your Account
+                                                </a>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <% include ../../partials/footer %>
+            </div>
+            <!-- /container -->
+    </body>
+
+</html>

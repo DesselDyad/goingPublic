@@ -1,0 +1,79 @@
+<div>
+    <ul id="crumbs">
+        <li>
+            <strong>You are here: </strong>
+            <a href='http://localhost:3000/'>
+                Home /
+            </a>
+        </li>
+        <% if(typeof singleForum != 'undefined') { %>
+            <% if(singleForum) { %>
+                <li>
+                    <a href="/forum" title="/forum">
+                        Forum /
+                    </a>
+                </li>
+                <li>
+                    <a href="<%= '/forum/' + singleForum[0]._id %>" title="<%= '/forum/' + singleForum[0]._id %>">
+                        <%= singleForum[0].title %>
+                    </a>
+                </li>
+            <% } %>
+        <% } else if(typeof singleSubForum != 'undefined') { %>
+            <% if(singleSubForum) { %>
+                <% if(typeof parentForum[0] != 'undefined') { %>
+                    <li>
+                        <a href="/forum" title="/forum">
+                            Forum /
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= '/forum/' + parentForum[0]._id %>" title="<%= '/forum/' + parentForum[0]._id %>">
+                            <%= parentForum[0].title %> /
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= '/forum/sub_forum/' + singleSubForum[0]._id %>" title="<%= '/forum/sub_forum/' + singleSubForum[0]._id %>">
+                            <%= singleSubForum[0].title %>
+                        </a>
+                    </li>
+                <% } %>
+            <% } %>
+        <% } else if(typeof singleThread != 'undefined') { %>
+            <% if(singleThread) { %>
+                <% if(typeof parentForum[0] != 'undefined') { %>
+                    <li>
+                        <a href="/forum" title="/forum">
+                            Forum /
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= '/forum/' + parentForum[0]._id %>" title="<%= '/forum/' + parentForum[0]._id %>">
+                            <%= parentForum[0].title %> /
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= '/forum/sub_forum/' + parentSubForum[0]._id %>" title="<%= '/forum/sub_forum/' + parentSubForum[0]._id %>">
+                            <%= parentSubForum[0].title %> /
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<%= '/forum/sub_forum/thread/' + singleThread[0]._id %>" title="<%= '/forum/sub_forum/thread/' + singleThread[0]._id %>">
+                            <%= singleThread[0].title %>
+                        </a>
+                    </li>
+                <% } %>
+            <% } %>
+        <% } else { %>
+            <% crumbs.forEach(crumb => { %>
+                <% if(crumb.name == title && crumb.name != "Home") { %>
+                    <li>
+                        <a href=<%=crumb.url %>>
+                            <%= '/ ' + crumb.name %>
+                        </a>
+                    </li>
+                <% } %>
+            <% })%>
+        <% } %>
+    </ul>
+</div>

@@ -1,0 +1,86 @@
+<script src="/js/zombie/profile.js"></script>
+<script src="/js/zombie/admin.js"></script>
+<!-- <script src="/js/zombie/searchbar.js"></script> -->
+<script src="/js/zombie/user.js"></script>
+<!-- <script src="/js/zombie/table_file.js"></script> -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div id="newsletter_div" class="col-xs-12">
+                    <h2>Tilmeld dig vores nyhedsbrev! </h2>
+                    <form id="newsletter_form" action="/newsletter/requestUserValidation" method="post">
+                        <p>
+                            <label for="name">Navn: </label>
+                            <input name="name" type="text" id="name" placeholder="Name" minlength="2" maxlength="50" required/>
+                            <label for="email">E-mail adresse: </label>
+                            <input name="email" type="email" id="email" placeholder="E-mail adresse" onkeyup="isEmailValid()" minlength="5" maxlength="50" required/>
+                            <button type="submit" id="subscribe_btn">Tilmeld</button>
+                        </p>
+                    </form>
+                    <span id="newsletter_srv_response" class="hidden">
+                    </span>
+                <div class="col-xs-12">
+                    <hr/>
+                </div>
+            </div>
+            <div id="contact_info" class="col-xs-12">
+                <div class="col-xs-12 col-sm-4">
+                    <p>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <strong>Adresse: </strong>GadeNavn 123 4567 ByNavn
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <p>
+                        <i class="fa fa-at" aria-hidden="true"></i>
+                        <strong>E-mail adresse: </strong>email@example.com
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <p>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <strong>Tlf. nummer: </strong> 1234 5678
+                    </p>
+                </div>
+                <div class="col-xs-12">
+                    <hr/>
+                </div>
+            </div>
+            <div id="social_media" class="col-xs-12">
+                <div class="col-xs-12  col-sm-6 col-md-4 ">
+                    <a>
+                        <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                </div>
+                <div class="col-xs-12  col-sm-6  col-md-4">
+                    <a>
+                        <i class="fa fa-pinterest"></i> Pinterest
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6  col-md-4">
+                    <a>
+                        <i class="fa fa-instagram"></i> Instagram
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-6  col-md-4">
+                    <a>
+                        <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                </div>
+                <div class="col-xs-12  col-sm-6  col-md-4 ">
+                    <a>
+                        <i class="fa fa-flickr"></i> FLickr
+                    </a>
+                </div>
+                <div class="col-xs-12">
+                    <hr/>
+                </div>
+            </div>
+            <div id="tm" class="col-xs-12">
+                    <i class="fa fa-copyright" aria-hidden="true"></i> 
+                    Copyright KulturHuset 1977
+                    <i class="fa fa-trademark" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</footer>

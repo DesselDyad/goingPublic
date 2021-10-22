@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                </div>
+                <h2 class="page-header">Kontakt</h2>
+                <p>Kontakt os</p>
+                <form id="contact_form" method="post" action="/contact/submitForm">
+                    <% if(user) { %>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" name="name" value=<%= user.local.contact_info.name %> autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" placeholder="Username" name="username" value=<%= user.local.account.username %>>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter Your E-mail - this will be used for our response</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" value=<%= user.local.contact_info.email %>>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Your Email</label>
+                            <input type="email" class="form-control" placeholder="Confirm Email" name="email2" value=<%= user.local.contact_info.email %>>
+                        </div>
+                    <% } else { %>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" name="name" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter Your E-mail - this will be used for our response</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Your Email</label>
+                            <input type="email" class="form-control" placeholder="Confirm Email" name="email2"  >
+                        </div>
+                    <% } %>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" class="form-control" placeholder="Subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label>Your message to us</label>
+                        <textarea class="form-control" placeholder="Message" name="message" form="contact_form" wrap="hard"></textarea>
+                    </div>
+                    <div>
+                        <label>Receiver
+                        <select name="receiver">
+                            <option value="admin" selected>Admin</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                        </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <!-- /container -->
+        <% include ../partials/footer %>
+    </body>
+</html>

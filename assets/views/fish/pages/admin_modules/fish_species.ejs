@@ -1,0 +1,114 @@
+<div class="fish_species_div col-xs-12 hidden">
+    <div class="row">
+        <button class="add_fish_species_btn">Add Fish Species </button>
+                <% if(typeof(add_fish_species_body) != 'undefined') { %>
+                    <div class="add_fish_species_div">
+                <% } else { %>
+                        <div class="add_fish_species_div hidden">
+                <% } %>
+                <form id="new_fish_species_form" method="post" action="/admin/fish_species/addFishSpecies" enctype="multipart/form-data" novalidate>
+                    <% if(typeof(add_fish_species_body) != 'undefined') { %>
+                        <% if(add_fish_species_body) { %>
+                            <section class="add_fish_species_section">
+                                <hr>
+                                <p>
+                                    <label for="name">Name: </label>
+                                    <input name="name" type="text" id="name" placeholder="Name" minlength="5" maxlength="50" value=<%= add_fish_species_body.name %> required autofocus>
+                                </p>
+                                <p>
+                                    <label for="species_description">Description: </label>
+                                    <input name="description" type="text" id="species_description" placeholder="Description" minlength="5" maxlength="50" value=<%= add_fish_species_body.description %> required>
+                                </p>
+                                <p>
+                                    <label for="species_external_ref">External reference: </label>
+                                    <input name="external_ref" type="text" id="species_external_ref" placeholder="External reference" minlength="5" maxlength="50" value=<%= add_fish_species_body.external_ref %>>
+                                </p>
+                                <div class="admin_img_div form-group">
+                                    <label class="location_img_label" >Upload Picture</label>
+                                    <input id="fish_species_images" name="fish_species_images" type="file" onchange="previewFishSpeciesFiles()"  accept="image/gif, image/jpeg, image/png" multiple>
+                                    <div id="fish_species_preview"></div>
+                                </div>
+                                <button type="submit">Add</button>
+                            </section>
+                        <% } %>
+                    <% } else { %>
+                        <section class="add_fish_species_section">
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-6">
+
+                                </div>
+                            </div>
+                            <p>
+                                <label for="name">Name: </label>
+                                <input name="name" type="text" id="name" placeholder="Name" minlength="5" maxlength="50" required autofocus>
+                            </p>
+                            <p>
+                                <label for="species_description">Description: </label>
+                                <input name="description" type="text" id="species_description" placeholder="Description" minlength="5" maxlength="50" required>
+                            </p>
+                            <p>
+                                <label for="species_external_ref">External reference: </label>
+                                <input name="external_ref" type="text" id="species_external_ref" placeholder="External reference" minlength="5" maxlength="50">
+                            </p>
+                            <div class="admin_img_div form-group">
+                                <label class="location_img_label" >Upload Picture</label>
+                                <input id="fish_species_images" name="fish_species_images" type="file" onchange="previewFishSpeciesFiles()" accept="image/gif, image/jpeg, image/png" multiple>
+                                <div id="fish_species_preview"></div>
+                            </div>
+                            <button type="submit">Add</button>
+                        </section>
+                    <% } %>
+                </form>
+            </div>
+        <div class="table_wrapper" class="col-xs-12">
+            <h2 id="fish_species_title">Fish Types</h2>
+            <table id="fish_species_table">
+                <thead>
+                    <tr>
+                        <th>
+                            Operation
+                        </th>
+                        <th>
+                            Images
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            External Reference
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% fish_species.forEach(species => { %>
+                        <tr>
+                            <td>
+                                <button class="delete glyphicon glyphicon-remove" id=<%= species.id %> onclick="delete_fish_species(this.id)"></button>
+                                <button class="wrench glyphicon glyphicon-wrench" id=<%= species.id %> onclick="edit_fish_species(this.id)"></button>
+                                <button class="wrench glyphicon glyphicon-picture" id=<%= species.id %> onclick="edit_fish_species_images(this.id)"></button>
+                            </td>
+                            <td>
+                                <% species.images.forEach(img => { %>
+                                    <img src=<%='/img/fish/fish_species/' + img %> title=<%='/img/' + img %> alt=<%='/img/' + img %>>
+                                <% }) %>
+                            </td>
+                            <td>
+                                <%= species.name %>
+                            </td>
+                            <td>
+                                <%= species.description %>
+                            </td>
+                            <td>
+                                <%= species.external_ref %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

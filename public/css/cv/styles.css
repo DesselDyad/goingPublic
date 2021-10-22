@@ -1,0 +1,261 @@
+/* GLOBAL GLOBAL */
+
+
+.right_container {
+    font-size: 120%;
+}
+
+/* LANGUAGE DIV */
+
+
+#lang_div {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#lang_div img {
+    height: 30px;
+}
+
+.picked {
+    box-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
+}
+
+/* LEFT GLOBAL */
+
+.yellow_hr {
+    color: yellow;
+    width: 80%;
+    margin: auto;
+    height: 12px;
+    z-index: 50;
+    position: absolute;
+}
+
+.left_container {
+    padding: 0;
+    background-color: rgba(54,54,54,1);
+    color: white;
+    font-size: 115%;
+    font-weight: bold;
+}
+
+.left_container h2,
+#title_span {
+    font-weight: normal;
+    width: 100%;
+}
+
+#title_span {
+    padding-bottom: 20px;
+}
+
+.profession h2 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.left_container ul {
+    list-style-type: none;
+    padding-left: 0%;
+}
+
+#title_span {
+    font-weight: bold;
+    font-size: 130%;
+    text-align: center;
+}
+
+#social_ul {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+#social_ul  li span {
+    width: 35px;
+}
+
+#skills_ul, #social_ul, #title_span {
+    border-bottom: 2px solid white;
+}
+
+/* PROFILE IMAGE */
+#profile_img {
+    width: 100%;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+/* CONTACT INFO */
+
+.social span {
+    font-weight: bold;
+    font-size: 120%;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.social span .glyphicon,
+.social span .fa,
+.social span .fab {
+    font-weight: bold;
+    font-size: 120%;
+    margin-bottom: 10px;
+}
+
+.social span a {
+    color: white;
+}
+
+.glyphicon, .fa, .fab {
+    color: rgba(255, 204, 0,1)!important;
+    width: 35px;
+    font-size: 225%;
+}
+
+.social_container {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.social_container a {
+    font-size: 155%;
+    color: white;
+}
+
+/* SKILLS */
+
+.skill_progress {
+    background-color: #fff;
+    width: 60%;
+    margin: 0 5px;
+    height: 5px;
+    position: relative;
+}
+
+.skill_progress span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(256,128,0,1);
+}
+
+.skill_prct {
+    font-weight: bold;
+}
+
+.skill_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill_name {
+    width: 55px;
+    font-weight: bold;
+}
+
+
+.lang_name {
+    width: 45px;
+    font-weight: bold;
+}
+
+/* SOCIAL */
+
+/* HOBBIES */
+
+/* RIGHT GLOBAL */
+/*  #education_container, 
+    #work_container {
+        border-bottom: 2px solid rgba(256,128,0,1);
+    } */
+.outer_li:nth-child(even) {
+    background-color: rgba(217, 217, 217, 1);
+}
+.outer_li:nth-child(odd) {
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.right_container ul {
+    list-style-type: none;
+}
+
+.right_container .outer_ul {
+    list-style-type: circle;
+    padding-left: 0;
+}
+
+.right_container .outer_ul ul {
+    list-style-type: square;
+}
+
+/* EDUCATION */
+
+h2 {
+    font-size: 300%;
+    font-weight: bold;
+    color: rgba(179, 71, 0,1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.border-heading h2 {
+    border-bottom: 2px solid grey;
+}
+
+.work_container h2 {
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+
+.institution {
+    text-decoration: underline;
+    font-weight: bolder;
+    color: rgba(179, 71, 0,1);
+}
+
+.outer_li,
+.outer_li {
+    position: relative;
+}
+
+/* https://www.youtube.com/watch?v=zAVhHHS_IH4 */
+
+#education_container,
+#work_container {
+    padding-left: 40px;
+    overflow: hidden;
+}
+.outer_li:after,
+.outer_li:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -21px;
+    width: 2px;
+    height: 100%;
+    background: rgba(256,128,0,1);
+    border-bottom: none;
+}
+.outer_li:before,
+.outer_li:before {
+    content: "";
+    position: absolute;
+    background-color: rgba(256,128,0,1);
+    left: -25px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(256,128,0,1);
+}

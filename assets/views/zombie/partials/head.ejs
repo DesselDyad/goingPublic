@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <!-- <script src='/js/zombie/index.js'></script> -->
+    <% if(typeof(user) != 'undefined') { %>
+        <% if(user) { %>
+            <link rel="stylesheet" href=<%= "/css/zombie/user_specific_sheets/" + user.local.preferences.theme %> type="text/css" id="dyn_sheet">
+        <% } %>
+    <% } %>
+    <link rel="stylesheet" href="/css/zombie/regular_css/style.css"  type="text/css">
+    <% sheets.forEach(sheet => { %>
+        <link rel="stylesheet" href=<%= "/css/zombie/regular_css/" + sheet.link %>  type="text/css">
+    <% }) %>
+    
+    <title>
+        <%= title %>
+    </title>
+</head>

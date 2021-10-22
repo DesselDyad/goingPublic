@@ -1,0 +1,69 @@
+body {
+    /* background-image: url('/img/concrete.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: rgba(124,124,124,1);
+}
+
+#main {
+    margin-bottom: 20px;
+}
+main {
+    background-color: rgba(114,114,114,1);
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: rgba(34,34,34,1);
+}
+
+.hidden {
+    display: none;
+}
+
+#role {
+    background-color: white;
+    color: black;
+}
+
+.orange {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.delete {
+    background-color: #FF0000;
+}
+
+.wrench {
+    background-color: rgb(29, 238, 238);
+    height: 150%;
+    padding: 10px;
+    color: black;
+}
+
+/* searching stuff*/
+
+.search_a, .search_h1 {
+    padding-left: 20px;
+}
+
+.search_a {
+    font-size: 200%;
+}
+
+.user_search_img {
+    height: 50px;
+    border-radius: 10px;
+}
+.product_div img {
+    height: 100px;
+}
+.product_div {
+    display: flex; 
+    flex-direction: row;
+}

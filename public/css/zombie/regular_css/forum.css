@@ -1,0 +1,197 @@
+.forum_td_div {
+    padding-bottom: 75px;
+}
+
+.thread_div {
+    background-color: rgba(74,74,74,1);
+    border: 5px solid rgba(34,34,34,1);
+    border-radius: 10px;
+}
+
+.thread_heading {
+    color: white;
+    font-weight: bold;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+}
+
+.thread_heading span {
+    color: orange;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgba(94,94,94,1);
+}
+
+.post_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+    border: 5px solid rgba(34,34,34,1);
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px;
+}
+
+.post_info {
+    color: white;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px;
+}
+
+.post_header label, .post_info label {
+    color: orange;
+}
+
+.post_info img {
+    border-radius: 15px;
+    box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white,0 0 15px white, 0 0 15px white, 0 0 15px white;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sub_label {
+    color: darkred
+}
+
+.post_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    color: white;
+    font-weight: bold;
+    /* border-bottom: 5px solid rgba(34,34,34,1);
+    border-right: 5px solid rgba(34,34,34,1); */
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px;
+}
+
+.post_body hr {
+    color: orange;
+    height: 3px;
+}
+
+.forum_main_heading {
+    color: white;
+}
+
+.forum_div {
+    background-color: rgba(74,74,74,1);
+    /* border: 5px solid rgba(34,34,34,1);
+    border-radius: 5px; */
+    padding: 20px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.forum_div ul {
+    list-style-type: none;
+}
+
+#forum_table {
+    width: 100%;
+    color: white;
+    background-color: rgba(94,94,94,1);
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#forum_table a {
+}
+
+#forum_table a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+#forum_table tr {
+    border-bottom: 2px solid white;
+    border-bottom-left-radius: 15px;
+}
+
+#forum_table thead {
+    padding: 20px;
+}
+
+#forum_table tbody {
+    padding: 20px;
+}
+
+#forum_table th {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: rgba(255,128,0,1);
+}
+
+.zombie_forum_div #forum_table th, .zombie_thread_heading, .zombie_post, .zombie_post .post_info img, .zombie_post .post_header label, .zombie_post .post_info label, .zombie_post .post_info, .zombie_post .post_header {
+    font-family: zfreaks;
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+}
+
+#forum_table td, #forum_table th {
+    /* border: 5px solid rgba(34,34,34,1);
+    border-radius: 15px!important; */
+    padding: 20px;
+}
+
+#new_thread_btn {
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#new_thread_btn:hover {
+    color: white;
+    background-color: black;
+}
+
+#forum_table tr td:first-child {
+    width: 35%;
+    padding: 10px;
+    padding-top: 60px;
+}
+
+.forum_heading {
+    color: rgba(255,128,0,1);
+    font-weight: bold;
+}
+
+
+.zombie_forum_div .forum_heading, .zombie_forum_div p, .zombie_forum_div a {
+    font-family: zfreaks;
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+}
+
+.subforum_heading {
+    padding: 20px;
+    /* border: 5px solid rgba(34,34,34,1); */
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgba(124,124,124,1);
+    color: darkred;
+    font-weight: bold;
+}
+
+.subforum_heading:hover {
+    background-color: rgba(64,64,64,1);
+}
+
+.lastupdate_div {
+    display: flex;
+    flex-direction: row;
+}

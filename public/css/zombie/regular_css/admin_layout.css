@@ -1,0 +1,138 @@
+#new_user_form, #new_subscriber_form, #new_product_form, #new_product_category_form{
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-left: 5px;
+    background-color: rgba(34,34,34,0.7);
+    color: white;
+}
+
+/* #new_user_form h1, 
+#new_user_form label {
+    font-weight: bold;
+} */
+
+#new_user_form h1,
+#new_user_form label
+#new_product_form h1,
+#new_product_form label
+#new_user_product_category h1,
+#new_product_category_form label  {
+    font-weight: bold;
+}
+
+#my_hr {
+    color: black;
+    background-color: black;
+    height: 2px;
+    margin-left: -200px;
+    padding-right: 400px;
+    width: 100%;
+    overflow-x: visible;
+}
+
+#new_user_form label,
+#new_product_form label,
+#new_product_category_form label {
+    width: 150px;
+    font-size: 150%;
+}
+
+.admin_main form button {
+    color: black;
+    font-size: 200%;
+    padding: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.admin_main form button:hover {
+    color: white;
+}
+#new_user_form input,
+#new_product_form input, 
+#new_product_category_form input {
+    height: 75px;
+    width: 450px;
+    border-radius: 5px;
+    font-size: 150%;
+    color: black;
+}
+
+
+.admin_main img {
+    height: 50px;
+    width: 150px;
+}
+
+.admin_main button {
+    padding: 15px;
+    margin: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn_clicked {
+    color: white;
+    background-color: black;
+}
+
+#users_btn {
+    margin-bottom: 30px;
+}
+
+table th {
+    font-size: 115%;
+}
+
+.admin_main table th, .admin_main table td {
+    padding: 10px;
+    border-left: 2px solid white;
+}
+
+.admin_main table th:first-child, .admin_main table td:first-child {
+    border-left: none;
+}
+
+table tr {
+    border-bottom: 2px solid rgba(34,34,34,0.7);
+}
+
+.admin_main td {
+    padding: 5px;
+    margin: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.admin_main table button:hover {
+    background-color: rgb(12, 46, 141);
+}
+
+.table_wrapper {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(34,34,34,0.7);
+    color: white;
+}
+
+.admin_main table {
+    width: 100%;
+}
+
+.admin_main table td, .admin_main h2, .admin_main h1, #product_categories {
+    color: white;
+    font-weight: bold;
+}
+
+.overview_h1 {
+    color: black!important;
+    font-size: 300%;
+}
+
+#add_user_h1:hover, #users_title:hover, #add_subscriber_h1:hover, #subscribers_title:hover {
+    cursor: pointer;
+}

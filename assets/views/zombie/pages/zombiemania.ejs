@@ -1,0 +1,4355 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                </div>
+                <div class="col-xs-3" id="sidebar_div">
+                    <% include ../partials/zombie_sidebar %>
+                </div>
+                <div class="col-xs-9">
+                    <div>
+                        <%- zombie_content %>
+                        <% if(typeof equipment != 'undefined') { %>
+                            <% if(equipment.length) { %>
+                                <% if(equipment.length > 0) { %>
+                                    <% equipment.forEach(type => { %>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h1 class="equipment_title">
+                                                    <i class="<%= type.category.icon_class %>" aria-hidden="true"> 
+                                                    </i>
+                                                    <%= type.category.name %>
+                                                </h1>
+                                                <table class="zombie_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                Image
+                                                            </th>
+                                                            <th>
+                                                                Item
+                                                            </th>
+                                                            <th>
+                                                                Description
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% type.equipment.forEach(item => { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="<%= '/zombiemania/equipment/' + item._id %>" title="<%= '/zombiemania/equipment/' + item._id %>">
+                                                                        
+                                                                    </a>
+                                                                    <img src="<%= '/img/zombie/equipment/' + item.img %>" alt="<%= '/img/equipment/' + item.img %>" title="<%= '/img/equipment/' + item.img %>" class="img-responsive">
+                                                                </td>
+                                                                <td>
+                                                                    <%= item.name %>
+                                                                </td>
+                                                                <td>
+                                                                    <%= item.description %>
+                                                                </td>
+                                                            </tr>
+                                                        <% }) %>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                        <% if(typeof movies != 'undefined') { %>
+                            <% if(movies) { %>
+                                <table class="zombie_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Director</th>
+                                            <th>Year</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% movies.forEach(movie => { %>
+                                            <tr>
+                                                <td>
+                                                    <%= movie.title%>
+                                                </td>
+                                                <td>
+                                                    <%= movie.director %>
+                                                </td>
+                                                <td>
+                                                    <%= movie.year %>
+                                                </td>
+                                                <td>
+                                                    <%= movie.notes%>
+                                                </td>
+                                            </tr>    
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    
+                    <!-- <table class="zombie_parse_table">
+                        <tr>
+                            <td>28 Days Later
+                            </td>
+                            <td>Danny Boyle
+                            </td>
+                            <td>2002
+                            </td>
+                            <td>infected humans
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>28 Weeks Later
+                            </td>
+                            <td>Juan Carlos Fresnadillo
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>sequel to 28 Days Later
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Abraham Lincoln vs. Zombies
+                            </td>
+                            <td>Richard Schenkman
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Alien Dead
+                            </td>
+                            <td>Fred Olen Ray
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>All Souls Day
+                            </td>
+                            <td>Jeremy Kasten
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>The Amazing Adventures of the Living Corpse
+                            </td>
+                            <td>Justin Paul Ritter
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>American Zombie
+                            </td>
+                            <td>Grace Lee
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Army of Darkness
+                            </td>
+                            <td>Sam Raimi
+                            </td>
+                            <td>1992
+                            </td>
+                            <td>third film in The Evil Dead franchise
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Astro-Zombies
+                            </td>
+                            <td>Ted V. Mikels
+                            </td>
+                            <td>1968
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Automaton Transfusion
+                            </td>
+                            <td>Steven C. Miller
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Autumn
+                            </td>
+                            <td>Steven Rumbelow
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Baron Blood (Gli orrori del castello di Norimberga)
+                            </td>
+                            <td>Mario Bava
+                            </td>
+                            <td>1972
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bath Salt Zombies
+                            </td>
+                            <td>Dustin Mills
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>drug turns people into flesh-eating zombies
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Battery
+                            </td>
+                            <td>Jeremy Gardner
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Battlefield Baseball (Jigoku Kôshien)
+                            </td>
+                            <td>Yūdai Yamaguchi
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Beneath Still Waters
+                            </td>
+                            <td>Brian Yuzna
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Beverly Hills Bodysnatchers
+                            </td>
+                            <td>Joanathan Mostow
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Beverly Lane
+                            </td>
+                            <td>Joshua Hull
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Beyond
+                            </td>
+                            <td>Lucio Fulci
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>second film in The Gates of Hell trilogy
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Beyond RE-Animator
+                            </td>
+                            <td>Brian Yuzna
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Big Tits Zombie (Big Tits Dragon: Hot Spring Zombie Vs. Stripper 5)
+                            </td>
+                            <td>Takao Nakano
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bio Zombie (Sun faa sau si)
+                            </td>
+                            <td>Wilson Yip
+                            </td>
+                            <td>1998
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Black Demons (Dèmoni 3)
+                            </td>
+                            <td>Umberto Lenzi
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>unrelated to Demoni films by Lamberto Bava
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Black Magic 2 (Gou hun jiang tou, Revenge of the Zombies)
+                            </td>
+                            <td>Ho Meng Hua
+                            </td>
+                            <td>1976
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Black Sheep
+                            </td>
+                            <td> Jonathan King
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>zombie sheep
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Black Swarm (Night of the Drones)
+                            </td>
+                            <td>David Winning
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bled White
+                            </td>
+                            <td>Jose Carlos Gomez
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Blood Creek (Creek, Town Creek)
+                            </td>
+                            <td>Joel Schumacher
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Blood of Ghastly Horror
+                            </td>
+                            <td>Al Adamson
+                            </td>
+                            <td>1972
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Blood of the Beast
+                            </td>
+                            <td>Georg Koszulinski
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bone Sickness
+                            </td>
+                            <td>Brian Paulin
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Boneyard
+                            </td>
+                            <td>James Cummins
+                            </td>
+                            <td>1990
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Book of Zombie
+                            </td>
+                            <td>Scott Kragelund, Paul Cranefield, Erik Van Sant
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bowery at Midnight
+                            </td>
+                            <td>Wallace Fox
+                            </td>
+                            <td>1942
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Boy Eats Girl
+                            </td>
+                            <td>Stephen Bradley
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Brain Blockers
+                            </td>
+                            <td>Lincoln Kupchak
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Braindead (Dead Alive)
+                            </td>
+                            <td>Peter Jackson
+                            </td>
+                            <td>1992
+                            </td>
+                            <td>First zombie movie from New Zealand
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Brain Dead
+                            </td>
+                            <td>Kevin Tenney
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Bride of Re-Animator
+                            </td>
+                            <td>Brian Yuzna
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Broken Springs (Broken Springs: Shrine of the Undead Zombie Bastards)
+                            </td>
+                            <td>Neeley Lawson
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Burial Ground: The Nights of Terror
+                            </td>
+                            <td>Andrea Bianchi
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Cabin in the Woods
+                            </td>
+                            <td>Drew Goddard
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Caustic Zombies
+                            </td>
+                            <td>Johnny Daggers
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Cemetery Man (Dellamorte Dellamore)
+                            </td>
+                            <td>Michele Soavi
+                            </td>
+                            <td>1994
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Children
+                            </td>
+                            <td>Max Kalmanowicz
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Children of the Living Dead
+                            </td>
+                            <td>Tor Ramsey
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Children Shouldn't Play with Dead Things
+                            </td>
+                            <td>Bob Clark
+                            </td>
+                            <td>1972
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Choking Hazard
+                            </td>
+                            <td>Marek Dobes
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Chopper Chicks in Zombietown
+                            </td>
+                            <td>Dan Hoskins
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>C.H.U.D. II: Bud the C.H.U.D.
+                            </td>
+                            <td>David Irving
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>City of Rott
+                            </td>
+                            <td>Frank Sudol
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>City of the Living Dead
+                            </td>
+                            <td>Lucio Fulci
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>first in The Gates of Hell trilogy
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Cockneys vs Zombies
+                            </td>
+                            <td>Matthias Hoene
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Colin
+                            </td>
+                            <td>Marc Price
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Corpses Are Forever
+                            </td>
+                            <td>Jose Prendes
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Creepshow 2
+                            </td>
+                            <td>Michael Gornick
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Crypt
+                            </td>
+                            <td>Craig McMahon
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Curse of the Living Dead (Les Démoniaques)
+                            </td>
+                            <td>Jean Rollin
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Curse of the Maya (Dawn of the Living Dead, Evil Grave: Curse of the Maya)
+                            </td>
+                            <td>David Heavener
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dance of the Dead
+                            </td>
+                            <td>Gregg Bishop
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dark Floors
+                            </td>
+                            <td>Pete Riski
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dawn of the Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>1978
+                            </td>
+                            <td>sequel to Night of the Living Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dawn of the Dead
+                            </td>
+                            <td>Zack Snyder
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>remake
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dawn of the Mummy
+                            </td>
+                            <td>Frank Agrama
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Day of the Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>1985
+                            </td>
+                            <td>second sequel to Night of the Living Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Day of the Dead
+                            </td>
+                            <td>Steve Miner
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>remake
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Day of the Dead 2: Contagium
+                            </td>
+                            <td>Ana Clavell & James Glenn Dudelson
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>Unofficial sequel to Day of the Dead.
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Days of Darkness
+                            </td>
+                            <td>Jake Kennedy
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead
+                            </td>
+                            <td>Howard J. Ford & Jonathan Ford
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead & Breakfast
+                            </td>
+                            <td>Matthew Leutwyler
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead & Buried
+                            </td>
+                            <td>Gary Sherman
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Air
+                            </td>
+                            <td>Corbin Bernsen
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead and Deader
+                            </td>
+                            <td>Patrick Dinhut
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Before Dawn
+                            </td>
+                            <td>April Mullen
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>half-zombie, half-demon
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Heat
+                            </td>
+                            <td>Mark Goldblatt
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead Hate the Living!
+                            </td>
+                            <td>Dave Parker
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Meat
+                            </td>
+                            <td>Conor McMahon
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Men Walking
+                            </td>
+                            <td>Peter Mervis
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Moon Rising
+                            </td>
+                            <td>Mark E. Poole
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead Next Door
+                            </td>
+                            <td>J.R. Bookwalter
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead of Night
+                            </td>
+                            <td>Bob Clark
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead One (El Muerto)
+                            </td>
+                            <td>Barry Mahon
+                            </td>
+                            <td>1961
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Within
+                            </td>
+                            <td>Ben Wagner
+                            </td>
+                            <td> 	2014
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Descendents (2008 film) (Solos)
+                            </td>
+                            <td>Jorge Olguín
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>billed as first-ever Chilean zombie film
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Exhumed
+                            </td>
+                            <td>Brian Clement
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead Outside
+                            </td>
+                            <td>Kerry Anne Mullaney
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Dead Pit
+                            </td>
+                            <td>Brett Leonard
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Snow
+                            </td>
+                            <td>Tommy Wirkola
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>nazi-zombies in the snow, ghore'ish
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dead Space: Downfall
+                            </td>
+                            <td>Chuck Patton
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>animated film based on Dead Space video game
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Deadgirl
+                            </td>
+                            <td>Marcel Sarmiento & Gadi Harel
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>DeadHeads
+                            </td>
+                            <td>Brett Pierce & Drew T. Pierce
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>comedy, zombies given a anti-dote on a quest of love
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Deathwatch
+                            </td>
+                            <td>Michael J. Bassett
+                            </td>
+                            <td>2002
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Decay
+                            </td>
+                            <td>Luke Thompson
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Deep River: The Island
+                            </td>
+                            <td>Ben Bachelder
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Detention of the Dead
+                            </td>
+                            <td>Alex Craig Mann
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Devil's Daughter (Pocomania)
+                            </td>
+                            <td>Arthur H. Leonard
+                            </td>
+                            <td>1939
+                            </td>
+                            <td>semi-remake of Ouanga
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Devil's Playground
+                            </td>
+                            <td>Mark McQueen
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Diary of the Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>fourth sequel to Night of the Living Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Die You Zombie Bastards!
+                            </td>
+                            <td>Caleb Emerson
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Die You Zombie Bastards!
+                            </td>
+                            <td>Caleb Emerson
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Die Zombiejäger
+                            </td>
+                            <td>Jonas Wolcher
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>Sweden's first zombie feature film
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Die-ner (Get It?)
+                            </td>
+                            <td>Patrick Horvath
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Discarnates (Summer Among the Zombies, Ijintachi tono natsu)
+                            </td>
+                            <td>Nobuhiko Obayashi
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Doctor Blood's Coffin
+                            </td>
+                            <td>Sidney J. Furie
+                            </td>
+                            <td>1961
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Doghouse
+                            </td>
+                            <td>Jake West
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Doom
+                            </td>
+                            <td>Andrzej Bartkowiak
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>Based loosely on the 1994 video game
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dorm of the Dead
+                            </td>
+                            <td>Donald Farmer
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Dylan Dog: Dead of Night
+                            </td>
+                            <td>Kevin Munroe
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Eat Me! (The Eaters)
+                            </td>
+                            <td>Katie Carman
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ed and His Dead Mother
+                            </td>
+                            <td>Jonathan Wacks
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Edges of Darkness
+                            </td>
+                            <td>Jason Horton & Blaine Cade
+                            </td>
+                            <td>2008 	
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Erotic Nights of the Living Dead (Sexy Nights of the Living Dead)
+                            </td>
+                            <td>Joe D'Amato
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Evil Dead
+                            </td>
+                            <td>Sam Raimi
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Evil Dead II
+                            </td>
+                            <td>Sam Raimi
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Evil Dead
+                            </td>
+                            <td>Fede Alvarez
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>reboot
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Evil (To Κακό)
+                            </td>
+                            <td>Yorgos Noussias
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Evil: In the Time of Heroes (To Κακό 2: Στην Eποχή Tων Hρώων)
+                            </td>
+                            <td>Yorgos Noussias
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>sequel to "To Κακό"
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Fading of the Cries
+                            </td>
+                            <td>Brian A. Metcalf
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Fido
+                            </td>
+                            <td>Andrew Currie
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>First Platoon
+                            </td>
+                            <td>Chris Gabriel
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>FleshEater (Zombie Nosh)
+                            </td>
+                            <td>Bill Hinzman
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Flick
+                            </td>
+                            <td>David Howard
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Flight of the Living Dead: Outbreak on a Plane
+                            </td>
+                            <td>Scott Thomas
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Forbidden Siren (Sairen)
+                            </td>
+                            <td>Yukihiko Tsutsumi
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>live-action adaptation of Siren video game series
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Forest of the Dead
+                            </td>
+                            <td>Brian Singleton
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Forever Dead
+                            </td>
+                            <td>Christine Parker
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Frankenhooker
+                            </td>
+                            <td>Frank Henenlotter
+                            </td>
+                            <td>1990
+                            </td>
+                            <td>Frankenstein-like re-assembled monster
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Gallowwalkers
+                            </td>
+                            <td>Andrew Goth
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Gangs of the Dead (Last Rites)
+                            </td>
+                            <td>Duane Stinnett
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Garden of the Dead
+                            </td>
+                            <td>John Hayes
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>George: A Zombie Intervention
+                            </td>
+                            <td>J.T. Seaton
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Germ Z
+                            </td>
+                            <td>J.T. Boone
+                            </td>
+                            <td>2013
+                            </td>
+                            <td> 	infected humans
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Ghost Breakers
+                            </td>
+                            <td>George Marshall
+                            </td>
+                            <td>1940
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Ghost Galleon
+                            </td>
+                            <td>Amando de Ossorio
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ghost Lake
+                            </td>
+                            <td>Jay Woelfel
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ghost Brigade (The Lost Brigade)
+                            </td>
+                            <td>George Hickenlooper
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Ghouls (Cannibal Dead: The Ghouls, Urban Cannibals)
+                            </td>
+                            <td>Chad Ferrin
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Goal of the Dead
+                            </td>
+                            <td>Thierry Poiraud and Benjamin Rocher
+                            </td>
+                            <td>2014
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Go Goa Gone
+                            </td>
+                            <td>Raj Nidimoru and Krishna D.K.
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>publicized as India's first "zom-com"
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Gory Gory Hallelujah
+                            </td>
+                            <td>Sue Corcoran
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Grave Mistake
+                            </td>
+                            <td>Shawn Darling
+                            </td>
+                            <td> 	2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Graveyard Alive: A Zombie Nurse in Love
+                            </td>
+                            <td>Elza Kephart
+                            </td>
+                            <td> 	2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Hanging Woman (Return of the Zombies)
+                            </td>
+                            <td>José Luis Merino
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Hell of the Living Dead (Night of the Zombies)
+                            </td>
+                            <td>Bruno Mattei
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Hidan of Maukbeiangjow (Invasion of the Girl Snatchers, Kaspar and Prudence Laugh Till It Hurts at The Killers of the Zombie Plot: A Musical)
+                            </td>
+                            <td>Lee Jones
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>aliens possess corpses
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Hide and Creep
+                            </td>
+                            <td>Chuck Hartsell & Chance Shirley
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Hood of the Living Dead
+                            </td>
+                            <td>Eduardo Quiroz & Jose Quiroz
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Horde (La Horde)
+                            </td>
+                            <td>Yannick Dahan & Benjamin Rocher
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Horror Express (Pánico en el Transiberiano, Panic on the Trans-Siberian Express)
+                            </td>
+                            <td>Eugenio Martín
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Horror of Party Beach
+                            </td>
+                            <td>Del Tenney
+                            </td>
+                            <td>1964
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Horrors of War
+                            </td>
+                            <td>Peter John Ross & John Whitney
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Horrorween
+                            </td>
+                            <td>Joe Estevez
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The House of Seven Corpses
+                            </td>
+                            <td>Paul Harrison
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The House by the Cemetery
+                            </td>
+                            <td>Lucio Fulci
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>third in The Gates of Hell trilogy
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>House of the Damned
+                            </td>
+                            <td>Sean Weathers
+                            </td>
+                            <td>1996
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>House of the Dead
+                            </td>
+                            <td>Uwe Boll
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>House of the Dead 2
+                            </td>
+                            <td>Michael Hurst
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>House of the Living Dead (Doctor Maniac)
+                            </td>
+                            <td>Ray Austin
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Hysterical
+                            </td>
+                            <td>Chris Bearde
+                            </td>
+                            <td>1983
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Am Legend
+                            </td>
+                            <td>Francis Lawrence
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>infected humans
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Am Omega
+                            </td>
+                            <td>Griff Furst
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>remake of the Last Man on Earth
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Eat Your Skin (Zombies)
+                            </td>
+                            <td>Del Tenney
+                            </td>
+                            <td>1964
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Sell the Dead
+                            </td>
+                            <td>Glenn McQuaid
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Walked with a Zombie
+                            </td>
+                            <td>Jacques Tourneur 	
+                            </td>
+                            <td>1943
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Was a Teenage Zombie
+                            </td>
+                            <td>John Elias Michalakis
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I Was a Zombie for the F.B.I.
+                            </td>
+                            <td>Marius Penczner
+                            </td>
+                            <td>1982
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>I, Zombie: The Chronicles of Pain (I, Zombie)
+                            </td>
+                            <td>Andrew Parkinson
+                            </td>
+                            <td>1999
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Insanitarium
+                            </td>
+                            <td>Jeff Buhler
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Invisible Invaders
+                            </td>
+                            <td>Edward L. Cahn
+                            </td>
+                            <td>1959
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Incredibly Strange Creatures Who Stopped Living and Became Mixed-Up Zombies
+                            </td>
+                            <td>Ray Dennis Steckler
+                            </td>
+                            <td>1964
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Island: Wedding of the Zombies (Ada: Zombilerin Düğünü, The Zombie Wedding)
+                            </td>
+                            <td>Murat Emir Eren, Talip Ertürk
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Juan of the Dead (Juan de los Muertos)
+                            </td>
+                            <td>Alejandro Brugués
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>Cuba's first zombie movie
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Junk (Shiryo-gari)
+                            </td>
+                            <td>Atsushi Muroga
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Killing Spree
+                            </td>
+                            <td>Tim Ritter
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>King of the Zombies
+                            </td>
+                            <td>Jean Yarbrough
+                            </td>
+                            <td>1941
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Kiss Daddy Goodbye (Revenge of the Zombie)
+                            </td>
+                            <td>Patrick Regan
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Land of the Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>third sequel to Night of the Living Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Last Days on Mars
+                            </td>
+                            <td>Ruairí Robinson
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Last Man on Earth (L'ultimo uomo della Terra)
+                            </td>
+                            <td>Ubaldo Ragona
+                            </td>
+                            <td>1964
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Last of the Living
+                            </td>
+                            <td>Logan McMillan
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>L.A. Zombie (Gay of the Dead)
+                            </td>
+                            <td>Bruce LaBruce
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>Adult film
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Legion of the Night
+                            </td>
+                            <td>Matt Jaissle
+                            </td>
+                            <td>1995
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Les Raisins de la Mort (The Grapes of Death, Pesticide)
+                            </td>
+                            <td>Jean Rollin
+                            </td>
+                            <td>1978
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Let Sleeping Corpses Lie
+                            </td>
+                            <td>Jorge Grau
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>A Little Bit Zombie
+                            </td>
+                            <td>Casey Walker
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Life After Beth
+                            </td>
+                            <td>Jeff Baena
+                            </td>
+                            <td>2014
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Livelihood
+                            </td>
+                            <td>Ryan Graham
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Machine Head
+                            </td>
+                            <td>Michael Patrick, Leonard Murphy
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Mad
+                            </td>
+                            <td>John Kalangis
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Make-out with Violence
+                            </td>
+                            <td>Deagol Brothers
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Maniac Cop
+                            </td>
+                            <td>William Lustig
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Maniac Cop 2
+                            </td>
+                            <td>William Lustig
+                            </td>
+                            <td>1990
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Meat Market
+                            </td>
+                            <td>Brian Clement
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Meat Market 2
+                            </td>
+                            <td>Brian Clement
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Messiah of Evil
+                            </td>
+                            <td>Willard Huyck & Gloria Katz
+                            </td>
+                            <td>1972
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>La Morte Vivante (The Living Dead Girl)
+                            </td>
+                            <td>Jean Rollin
+                            </td>
+                            <td>1982
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Mortuary
+                            </td>
+                            <td>Tobe Hooper
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Mulberry Street
+                            </td>
+                            <td>Jim Mickle
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Mutants (2009 film)
+                            </td>
+                            <td>David Morlet
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>My Boyfriend's Back
+                            </td>
+                            <td>Bob Balaban
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Necropolis Awakened
+                            </td>
+                            <td>Garrett White
+                            </td>
+                            <td>2002
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Comet
+                            </td>
+                            <td>Thom Eberhardt
+                            </td>
+                            <td>1984
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Creeps
+                            </td>
+                            <td>Fred Dekker
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Day of the Dawn of the Son of the Bride of the Return of the Revenge of the Terror of the Attack of the Evil, Mutant, Alien, Flesh Eating, Hellbound, Zombified Living Dead Part 2: In Shocking 2-D
+                            </td>
+                            <td>James Riffel
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Dead (Night of the Leben Tod)
+                            </td>
+                            <td>Eric Forsberg
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>1968
+                            </td>
+                            <td>original
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead
+                            </td>
+                            <td>Tom Savini
+                            </td>
+                            <td>1990
+                            </td>
+                            <td>remake
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead
+                            </td>
+                            <td>Chad Zuver
+                            </td>
+                            <td>2014
+                            </td>
+                            <td>remake
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead 3D (Night of the Living DE3D)
+                            </td>
+                            <td>Jeff Broadstreet
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead 3D: Re-Animation
+                            </td>
+                            <td>Jeff Broadstreet
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>prequel to Night of the Living DE3D
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead: Origins 3D
+                            </td>
+                            <td>Zebediah de Soto
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Living Dead: Reanimated
+                            </td>
+                            <td>Mike Schneider
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Die Nacht der lebenden Loser (Night of the Living Dorks)
+                            </td>
+                            <td>Mathias Dinter
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night of the Seagulls
+                            </td>
+                            <td>Amando de Ossorio
+                            </td>
+                            <td>1975
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Night Life
+                            </td>
+                            <td>David Acomba
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Nightmare City (City of the Walking Dead)
+                            </td>
+                            <td>Umberto Lenzi
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Night Shift
+                            </td>
+                            <td>Thomas Smith
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>Based on a 2009 short film of the same title.
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ninjas vs. Zombies
+                            </td>
+                            <td>Justin Timpane
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Nudist Colony of the Dead
+                            </td>
+                            <td>Mark Pirro
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Oasis of the Zombies
+                            </td>
+                            <td>Jesús Franco
+                            </td>
+                            <td>1982
+                            </td>
+                            <td>French-Spanish co-production
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Oh! My Zombie Mermaid (Â! Ikkenya puroresu)
+                            </td>
+                            <td>Naoki Kubo
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>mermaid is not a zombie, but it has a zombie character
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>One Dark Night
+                            </td>
+                            <td>Tom McLoughlin
+                            </td>
+                            <td>1983
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Open Grave
+                            </td>
+                            <td>Gonzalo López-Gallego
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Outpost
+                            </td>
+                            <td>Steve Barker
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ozone
+                            </td>
+                            <td>J.R. Bookwalter
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>drug turns people into zombies
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>ParaNorman
+                            </td>
+                            <td>Sam Fell & Chris Butler
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>described as a "zombie movie for kids"
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pathogen
+                            </td>
+                            <td>Emily Hagins
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>documentary Zombie Girl: The Movie covers the making of this movie
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Percy Jackson: Sea of Monsters
+                            </td>
+                            <td>Thor Freudenthal
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pet Sematary
+                            </td>
+                            <td>Mary Lambert
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pet Sematary Two
+                            </td>
+                            <td>Mary Lambert
+                            </td>
+                            <td>1992
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pirates of the Caribbean: On Stranger Tides
+                            </td>
+                            <td>Rob Marshall
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Plaga Zombie
+                            </td>
+                            <td>Pablo Parés & Hernán Sáez
+                            </td>
+                            <td>1997
+                            </td>
+                            <td>First-ever Argentine zombie horror film and part of the Plaga Zombie film series.
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Plaga Zombie: Zona Mutante
+                            </td>
+                            <td>Pablo Parés & Hernán Sáez
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Plague (Clive Barker's The Plague)
+                            </td>
+                            <td>Hal Masonberg
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Plague of the Zombies
+                            </td>
+                            <td>John Gilling
+                            </td>
+                            <td>1966
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Plaguers
+                            </td>
+                            <td>Brad Sykes
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>alien orb turns people into zombies
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Plan 9 from Outer Space
+                            </td>
+                            <td>Ed Wood
+                            </td>
+                            <td>1959
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Planet Terror
+                            </td>
+                            <td>Robert Rodriguez
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pontypool
+                            </td>
+                            <td>Bruce McDonald
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>zombie appears like infected human
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pop Punk Zombies
+                            </td>
+                            <td>Steve Dayton
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Portrait of a Zombie
+                            </td>
+                            <td>Bing Bailey
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Poultrygeist: Night of the Chicken Dead
+                            </td>
+                            <td>Lloyd Kaufman
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Premutos: The Fallen Angel (Premutos – Der gefallene Engel, aka Premutos: Lord of the Living Dead)
+                            </td>
+                            <td>Olaf Ittenbach
+                            </td>
+                            <td>1997
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Prince of Darkness (John Carpenter's Prince of Darkness)
+                            </td>
+                            <td>John Carpenter
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Pushin' Up Daisies
+                            </td>
+                            <td>Patrick Franklin
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Quarantine
+                            </td>
+                            <td>John Erick Dowdle
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>remake of REC
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Quarantine 2: Terminal
+                            </td>
+                            <td>John Pogue
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Quick and the Undead
+                            </td>
+                            <td>Gerald Nott
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Raiders of the Living Dead
+                            </td>
+                            <td>Samuel M. Sherman
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Rammbock
+                            </td>
+                            <td>Marvin Kren
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Rape After
+                            </td>
+                            <td>Ho Meng Hua & Moon-Tong Lau
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Re-Animator
+                            </td>
+                            <td>Stuart Gordon
+                            </td>
+                            <td>1985
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>REC
+                            </td>
+                            <td>Jaume Balagueró & Paco Plaza
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>original
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>REC 2
+                            </td>
+                            <td>Jaume Balagueró & Paco Plaza
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>sequel to REC
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>REC 3: Genesis
+                            </td>
+                            <td>Paco Plaza
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>parallel stories to REC
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Redneck Zombies
+                            </td>
+                            <td>Pericles Lewnes
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Reel Zombies
+                            </td>
+                            <td>David J. Francis
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>third installment in Zombie Night series, mockumentary
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Remains (Steve Niles' Remains)
+                            </td>
+                            <td>Colin Theys
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil
+                            </td>
+                            <td>Paul W. S. Anderson
+                            </td>
+                            <td>2002
+                            </td>
+                            <td>first in Resident Evil series
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Apocalypse
+                            </td>
+                            <td>Alexander Witt
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Extinction
+                            </td>
+                            <td>Russell Mulcahy
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Afterlife
+                            </td>
+                            <td>Paul W. S. Anderson
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Retribution
+                            </td>
+                            <td>Paul W. S. Anderson
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Degeneration (Biohazard: Degeneration)
+                            </td>
+                            <td>Makoto Kamiya
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>animated
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Resident Evil: Damnation
+                            </td>
+                            <td>Makoto Kamiya
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>animated
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Return of the Blind Dead
+                            </td>
+                            <td>Amando de Ossorio
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>second film in Ossorio's Blind Dead series
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Return of the Living Dead
+                            </td>
+                            <td>Dan O'Bannon
+                            </td>
+                            <td>1985
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Return of the Living Dead Part II
+                            </td>
+                            <td>Ken Wiederhorn
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Return of the Living Dead 3
+                            </td>
+                            <td>Brian Yuzna
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Return of the Living Dead: Necropolis
+                            </td>
+                            <td>Ellory Elkayem
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Return of the Living Dead: Rave to the Grave (Return of the Living Dead 5: Rave to the Grave, Return of the Living Dead: Rave from the Grave)
+                            </td>
+                            <td>Ellory Elkayem
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Returned
+                            </td>
+                            <td>Manuel Carballo
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Revenge of the Living Dead Girls
+                            </td>
+                            <td>Pierre B. Reinhard
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Revenant
+                            </td>
+                            <td>D. Kerry Prior
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>combination of zombie and vampire
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Revenge of the Zombies
+                            </td>
+                            <td>Steve Sekely
+                            </td>
+                            <td>1943
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Revolt of the Zombies
+                            </td>
+                            <td>Victor Halperin
+                            </td>
+                            <td>1936
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Rise of the Zombies
+                            </td>
+                            <td>Nick Lyon
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Ritual (Tales from the Crypt: Ritual)
+                            </td>
+                            <td>Avi Nesher
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Roost
+                            </td>
+                            <td>Ti West
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Route 666
+                            </td>
+                            <td>William Wesley
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>SARS Wars
+                            </td>
+                            <td>Taweewat Wantha
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Scooby-Doo on Zombie Island
+                            </td>
+                            <td>Hiroshi Aoyama & Kazumi Fukushima
+                            </td>
+                            <td>1998
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Schoolgirl Apocalypse
+                            </td>
+                            <td>John S. Cairns
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Serpent and the Rainbow
+                            </td>
+                            <td>Wes Craven
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Santo vs. the Zombies (Invasion of the Zombies)
+                            </td>
+                            <td>Benito Alazraki
+                            </td>
+                            <td>1962
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Sexykiller (Sexykiller, morirás por ella)
+                            </td>
+                            <td>Paco Cabeza
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Severed: Forest of the Dead
+                            </td>
+                            <td>Carl Bessai
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>not to be confused with Forest of the Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Shadow: Dead Riot
+                            </td>
+                            <td>Derek Wan
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Shaolin vs. Evil Dead (Shao lin jiang shi, Siu lam geung see)
+                            </td>
+                            <td>Douglas Kung
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Shatter Dead
+                            </td>
+                            <td>Scooter McCrae
+                            </td>
+                            <td>1994
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Shaun of the Dead
+                            </td>
+                            <td>Edgar Wright
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Shock Waves
+                            </td>
+                            <td>Ken Wiederhorn
+                            </td>
+                            <td>1977
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Silent Night, Zombie Night
+                            </td>
+                            <td>Sean Cain
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Sint (Saint, Saint Nick)
+                            </td>
+                            <td>Dick Maas
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Slither
+                            </td>
+                            <td>James Gunn
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Special Dead
+                            </td>
+                            <td>Thomas L. Phillips and Sean Simmons
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Splinter
+                            </td>
+                            <td>Toby Wilkins
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Stacy
+                            </td>
+                            <td>Naoyuki Tomomatsu
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Stalled
+                            </td>
+                            <td>Christian James
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Stag Night of the Dead
+                            </td>
+                            <td>Neil Jones
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>State of Emergency
+                            </td>
+                            <td>Turner Clay
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Stink of Flesh
+                            </td>
+                            <td>Scott Phillips
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Sugar Hill
+                            </td>
+                            <td>Paul Maslansky
+                            </td>
+                            <td>1974
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Supernaturals
+                            </td>
+                            <td>Armand Mastroianni
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Surf II
+                            </td>
+                            <td>Randall Badat
+                            </td>
+                            <td>1984
+                            </td>
+                            <td>drink turns people into zombies
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Survival of the Dead
+                            </td>
+                            <td>George A. Romero
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>fifth sequel to Night of the Living Dead
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Swamp Zombies
+                            </td>
+                            <td>Len Kabasinski
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Tales of Terror
+                            </td>
+                            <td>Roger Corman
+                            </td>
+                            <td>1962
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Teenage Zombies
+                            </td>
+                            <td>Jerry Warren
+                            </td>
+                            <td>1959
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Terror-Creatures from the Grave (5 tombe per un medium, Cemetery of the Living Dead)
+                            </td>
+                            <td>Massimo Pupillo
+                            </td>
+                            <td>1965
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>They Came Back
+                            </td>
+                            <td>Robin Campillo
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>They Walk
+                            </td>
+                            <td>Charles House II
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Tokyo Zombie
+                            </td>
+                            <td>Sakichi Satō
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Tombs of the Blind Dead
+                            </td>
+                            <td>Amando de Ossorio
+                            </td>
+                            <td>1971
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Tormented
+                            </td>
+                            <td>Jon Wright
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Trailer Park of Terror
+                            </td>
+                            <td>Steven Goldmann
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Uncle Sam
+                            </td>
+                            <td>William Lustig
+                            </td>
+                            <td>1996
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Undead
+                            </td>
+                            <td>Michael Spierig & Peter Spierig
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Undead or Alive
+                            </td>
+                            <td>Glasgow Phillips
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Undead Pool (Attack Girls' Swim Team Versus the Undead)
+                            </td>
+                            <td>Kôji Kawano
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Uniform SurviGirl I (Seifuku Survivor Girl, Seifuku sabaigâru I)
+                            </td>
+                            <td>Hiroshi Kaneko
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Urban Decay
+                            </td>
+                            <td>Harry Basil
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Vampires vs. Zombies (Carmilla, the Lesbian Vampire)
+                            </td>
+                            <td>Vince D'Amato
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Versus (Vāsasu)
+                            </td>
+                            <td>Ryuhei Kitamura
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Vengeance of the Zombies (La rebelión de las muertas)
+                            </td>
+                            <td>León Klimovsky
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Video Dead
+                            </td>
+                            <td>Robert Scott
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Vineyard
+                            </td>
+                            <td>James Hong
+                            </td>
+                            <td>1989
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Violent Shit III: Infantry of Doom (Zombie Doom)
+                            </td>
+                            <td>Andreas Schnaas
+                            </td>
+                            <td>1999
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>A Virgin Among the Living Dead
+                            </td>
+                            <td>Jesús Franco
+                            </td>
+                            <td>1973
+                            </td>
+                            <td>main character has visions of zombies
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Virus Undead
+                            </td>
+                            <td>Wolf Wolff and Ohmuti
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>War of the Dead (Stone's War)
+                            </td>
+                            <td>Marko Makilaakso
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>War of the Zombies (Rome Against Rome)
+                            </td>
+                            <td>Giuseppe Vari
+                            </td>
+                            <td>1964
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Warm Bodies
+                            </td>
+                            <td>Jonathan Levine
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Wasting Away (Aaah! Zombies!!)
+                            </td>
+                            <td>Matthew Kohnen
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Waxwork
+                            </td>
+                            <td>Anthony Hickox
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Waxwork II: Lost in Time
+                            </td>
+                            <td>Anthony Hickox
+                            </td>
+                            <td>1992
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>White Zombie
+                            </td>
+                            <td>Victor Halperin
+                            </td>
+                            <td>1932
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Wicked Little Things
+                            </td>
+                            <td>J.S. Cardone
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Wilczyca (The Wolf, She-Wolf)
+                            </td>
+                            <td>Marek Piestrak
+                            </td>
+                            <td>1983
+                            </td>
+                            <td>dead woman comes back as an undead werewolf
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Wild Zero
+                            </td>
+                            <td>Tetsuro Takeuchi
+                            </td>
+                            <td>2000
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>World War Z
+                            </td>
+                            <td>Marc Forster
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Yoroi Samurai Zombie (Yoroi: Samurai Zonbie, Samurai Zombie)
+                            </td>
+                            <td>Tak Sakaguchi
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zeder (Revenge of the Dead)
+                            </td>
+                            <td>Pupi Avati
+                            </td>
+                            <td>1983
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zibahkhana (Hell's Ground)
+                            </td>
+                            <td>Omar Khan
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>Pakistan's first zombie movie
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>ZMD: Zombies of Mass Destruction
+                            </td>
+                            <td>Kevin Hamedani
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombi 2 (Zombie Flesh-Eaters)
+                            </td>
+                            <td>Lucio Fulci
+                            </td>
+                            <td>1979
+                            </td>
+                            <td>an unlicensed sequel to Zombi (the Italian title of Dawn of the Dead)
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombi 3 (Zombie Flesh Eaters 2)
+                            </td>
+                            <td>Lucio Fulci and Bruno Mattei
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie 4: After Death (Oltre la morte, Zombie Flesh Eaters 3)
+                            </td>
+                            <td>Claudio Fragasso
+                            </td>
+                            <td>1988
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie 5: Killing Birds (Uccelli assassini)
+                            </td>
+                            <td>Claudio Lattanzi
+                            </td>
+                            <td>1991
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Ass (Zombie Ass: Toilet of the Dead)
+                            </td>
+                            <td>Noboru Iguchi
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Bloodbath
+                            </td>
+                            <td>Todd Sheets
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Brigade
+                            </td>
+                            <td>Carmelo Musca & Barrie Pattison
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Chronicles
+                            </td>
+                            <td>Brad Sykes
+                            </td>
+                            <td>2001
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Zombie Diaries
+                            </td>
+                            <td>Michael Bartlett & Kevin Gates
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Zombie Diaries 2
+                            </td>
+                            <td>Michael Bartlett & Kevin Gates
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>sequel
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Zombie Farm
+                            </td>
+                            <td>Ricardo Islas
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Genocide
+                            </td>
+                            <td>Andrew Harrison, Khris Carville, & Darryl Sloan
+                            </td>
+                            <td>1993
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie High
+                            </td>
+                            <td>Ron Link
+                            </td>
+                            <td>1987
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Holocaust (Zombi Holocaust)
+                            </td>
+                            <td>Marino Girolami
+                            </td>
+                            <td>1980
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Holocaust (Female Mercenaries on Zombie Island)
+                            </td>
+                            <td>Gary Whitson
+                            </td>
+                            <td>1995
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Honeymoon
+                            </td>
+                            <td>David Gebroe
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Zombie King
+                            </td>
+                            <td>Aidan Belizaire
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie King and the Legion of Doom (Zombie Beach Party, Enter ... Zombie King)
+                            </td>
+                            <td>Stacey Case
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Lake
+                            </td>
+                            <td>Jean Rollin
+                            </td>
+                            <td>1981
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Massacre
+                            </td>
+                            <td>Luca Boni and Marco Ristori
+                            </td>
+                            <td>2010
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Nation
+                            </td>
+                            <td>Ulli Lommel
+                            </td>
+                            <td>2004
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Night (2003)
+                            </td>
+                            <td>David J. Francis
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Night (2013)
+                            </td>
+                            <td>John Gulager
+                            </td>
+                            <td>2013
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Night 2: Awakening
+                            </td>
+                            <td>David J. Francis
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>sequel
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Nightmare
+                            </td>
+                            <td>Jack Bravman
+                            </td>
+                            <td>1986
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie! vs. Mardi Gras
+                            </td>
+                            <td>Will Frank & Karl DeMolay
+                            </td>
+                            <td>1999
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombiegeddon
+                            </td>
+                            <td>Chris Watson
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombieland
+                            </td>
+                            <td>Ruben Fleischer
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombies of Mora Tau
+                            </td>
+                            <td>Edward L. Cahn
+                            </td>
+                            <td>1957
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Planet
+                            </td>
+                            <td>George Bonilla
+                            </td>
+                            <td>2003
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Self-Defense Force (Zonbi jieitai)
+                            </td>
+                            <td>Naoyuki Tomomatsu
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Strippers
+                            </td>
+                            <td>Jay Lee
+                            </td>
+                            <td>2008
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombies of the Stratosphere
+                            </td>
+                            <td>Fred C. Brannon
+                            </td>
+                            <td>1952
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombies on Broadway (Loonies on Broadway)
+                            </td>
+                            <td>Gordon Dines & Gordon M. Douglas
+                            </td>
+                            <td>1945
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombies! Zombies! Zombies!
+                            </td>
+                            <td>Jason M. Murphy
+                            </td>
+                            <td>2007
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Undead
+                            </td>
+                            <td>Rhys Davies
+                            </td>
+                            <td>2011
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Wars
+                            </td>
+                            <td>David A. Prior
+                            </td>
+                            <td>2006
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombie Women of Satan
+                            </td>
+                            <td>Steve O'Brien and Warren Speed
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zombiez
+                            </td>
+                            <td>John Bacchus
+                            </td>
+                            <td>2005
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>The Zombinator
+                            </td>
+                            <td>Sergio Myers
+                            </td>
+                            <td>2012
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>Zone of the Dead (Зона мртвих, Zona Mrtvih, Apocalypse of the Dead)
+                            </td>
+                            <td>Milan Konjević & Milan Todorović
+                            </td>
+                            <td>2009
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table> -->
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+        <% include ../partials/footer %>
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                </div>
+                <div class="center col-xs-12">
+                    <% if(typeof(singleFish) != 'undefined') { %>
+                        <% if(singleFish.length != 0) { %>
+                            <div class="swipe_div">
+                                <article>
+                                    <a href=<%="/singleFish/" + singleFish[0]._id %> alt=<%="/singleFish/" + singleFish[0]._id %> title=<%="/singleFish/" + singleFish[0]._id %> >
+                                        <img src=<%="/img/fish/fish/" + singleFish[0].images[0] %> alt=<%="/img/fish/" + singleFish[0].images[0] %> title=<%="/img/fish/" + singleFish[0].images[0] %> class="img-responsive" id="latest_img">
+                                    </a>
+                                    <section>
+                                        <p>
+                                            <span class="label_span">Description: </span><span id="description_span"><%= singleFish.description%></span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Species: </span>
+                                            <a id="type_a" href=<%= "/singleFishSpecies/" + singleFish[0].species._id %> alt=<%= "/singleFishSpecies/" + singleFish[0].species._id %> title=<%= "/singleFishSpecies/" + singleFish[0].species._id %> >
+                                                <%= singleFish[0].species.name%>
+                                            </a>
+                                        </p>
+                                        <p>
+                                            <span class="label_span" width="100">Weight: </span><span id="weight_span">
+                                                <%= singleFish[0].weight %> kg
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span" width="100">Location: </span>
+                                            <span>
+                                                <a id="location_a" href=<%= "/singleLocation/" + singleFish[0].location._id %> title=<%= "/singleLocation/" + singleFish[0].location._id %> alt=<%= "/singleLocation/:" + singleFish[0].location._id %> >
+                                                    <%= singleFish[0].location.name %>
+                                                </a>
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Date Caught: </span><span id="date_caught_span">
+                                                <a href=<%= "/loadSingleDate/" + singleFish[0].date_caught %> title=<%= "/loadSingleDate/" + singleFish[0].date_caught %> alt=<%= "/loadSingleDate/" + singleFish[0].date_caught %> >
+                                                    <%= singleFish[0].date_caught %>
+                                                </a>
+                                            </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Caught By: </span><span id="caught_by_span">
+                                                <%= singleFish[0].caught_by.local.account.username %>
+                                            </span>
+                                        </p>
+                                    </section>
+                                    <div class="row">
+                                        <div class="col-xs-12 horizontal">
+                                            <div class="row">
+                                                <% singleFish[0].images.forEach(image => { %>
+                                                    <div class="col-xs-4">
+                                                        <img src=<%="/img/fish/fish/" + image %> alt=<%="/img/fish/" + image %> title=<%="/img/fish/" + image %> class="img-responsive"">
+                                                    </div>
+                                                <% })%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        <% } %>
+                    <% } else if( latest != undefined ) { %>
+                        <% if(latest.fish.length != 0) { %>
+                            <h2>Latest 15 fish caught</h2>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <% console.log( latest.count ) %>
+                                </div>
+                            </div>
+                            <% latest.fish.forEach(fish => { %>
+                                <div class="swipe_div">
+                                    <article>
+                                        <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
+                                            <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images[0] %> title=<%="/img/fish/" + fish.images[0] %> class="img-responsive" id="latest_img">
+                                        </a>
+                                        <section>
+                                            <p>
+                                                <span class="label_span">Description: </span><span id="description_span"><%= fish.description%></span>
+                                            </p>
+                                            <p>
+                                                <span class="label_span">Species: </span>
+                                                <a id="type_a" href=<%= "/singleFishSpecies/" + fish.species._id %> alt=<%= "/singleFishSpecies/" + fish.species._id %> title=<%= "/singleFishSpecies/" + fish.species._id %> >
+                                                    <%= fish.species.name%>
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <span class="label_span" width="100">Weight: </span><span id="weight_span">
+                                                    <%= fish.weight %> kg
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span class="label_span" width="100">Location: </span>
+                                                <span>
+                                                    <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
+                                                        <%= fish.location.name %>
+                                                    </a>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span class="label_span">Date Caught: </span><span id="date_caught_span">
+                                                    <a href=<%= "/loadSingleDate/" + fish.date_caught %> title=<%= "/loadSingleDate/" + fish.date_caught %> alt=<%= "/loadSingleDate/" + fish.date_caught %> >
+                                                        <%= fish.date_caught %>
+                                                    </a>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                <span class="label_span">Caught By: </span><span id="caught_by_span">
+                                                    <%= fish.caught_by.local.account.username %>
+                                                </span>
+                                            </p>
+                                        </section>
+                                    </article>
+                                </div>
+                            <% }) %>
+                        <% } %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+        <% include ../partials/footer %>
+    </body>
+</html>

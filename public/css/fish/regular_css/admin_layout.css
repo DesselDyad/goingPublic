@@ -1,0 +1,205 @@
+.admin_main,
+.fish_div,
+.fish_species_div,
+.users_div,
+.locations_div, 
+.subscribers_div,
+.users_div {
+    width: 95%;
+    margin: auto;
+}
+
+#button_div {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#admin_overview{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 200%!important;
+    font-weight: bold;
+}
+
+.fish_div .row,
+.fish_species_div .row,
+.users_div .row,
+.locations_div .row, 
+.subscribers_div .row,
+.users_div .row {
+    display: flex;
+    flex-direction: column;
+}
+
+#new_user_form, 
+#new_subscriber_form, 
+#new_product_form, 
+#new_product_category_form {
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-left: 5px;
+    background-color: rgba(34,34,34,0.7);
+    color: white;
+}
+#new_user_form h1,
+#new_user_form label
+#new_product_form h1,
+#new_product_form label
+#new_user_product_category h1,
+#new_product_category_form label {
+    font-weight: bold;
+}
+
+#my_hr {
+    color: black;
+    background-color: black;
+    height: 2px;
+    margin-left: auto;
+    width: 90%;
+    overflow-x: visible;
+}
+
+#new_user_form label,
+#new_product_form label,
+#new_product_category_form label {
+    width: 150px;
+    font-size: 150%;
+}
+
+.btn_clicked {
+    color: white;
+    background-color: black;
+}
+
+table th {
+    font-size: 115%;
+}
+
+table tr {
+    border-bottom: 2px solid rgba(34,34,34,0.7);
+}
+
+.table_wrapper {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(34,34,34,0.7);
+    color: white;
+}
+
+#add_user_h1:hover, 
+#users_title:hover, 
+#add_subscriber_h1:hover, 
+#subscribers_title:hover {
+    cursor: pointer;
+}
+
+.images_master {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.red {
+    background-color: red;
+}
+
+.admin_img_div {
+    display: flex;
+    flex-direction: column;
+    width: 51%;
+    margin: auto;
+}
+
+.admin_main {
+    background-color: rgba(44,44,44,1);
+    padding: 50px;
+}
+
+.my_fish_container form button, 
+.admin_main form button {
+    color: black;
+    font-size: 200%;
+    padding: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.my_fish_container form button:hover, 
+.admin_main form button:hover {
+    color: white;
+}
+
+.admin_main img {
+    height: 50px;
+    width: 150px;
+}
+
+
+.my_fish_container button, 
+.admin_main button {
+    padding: 15px;
+    margin: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.admin_main table th, .admin_main table td {
+    padding: 10px;
+    border-left: 2px solid white;
+}
+
+.admin_main table th:first-child, 
+.admin_main table td:first-child {
+    border-left: none;
+}
+
+.admin_main td {
+    padding: 5px;
+    margin: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.admin_main table button:hover {
+    background-color: rgb(12, 46, 141);
+}
+
+.admin_main table {
+    width: 100%;
+}
+
+.admin_main table td, 
+.admin_main h2, 
+.admin_main h1, 
+#product_categories {
+    color: white;
+    font-weight: bold;
+}
+
+
+.my_fish_container label, 
+.admin_main label {
+    width: 150px;
+    color: orange;
+    font-weight: bold;
+}
+
+
+.my_fish_container input, 
+.admin_main input,
+.admin_main select {
+    border: 5px solid rgba(69, 97, 237, 1);
+    border-radius: 10px;
+    background-color: rgba(237, 238, 248, 1)!important;
+    color: black;
+    padding: 5px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                </div>
+                <% if(typeof singleThread != 'undefined') { %>
+                    <div class="thread_div">
+                            <% if(singleThread) { %>
+                                <% if(parentForum == "Zombie") { %>
+                                    <h1 class="zombie_thread_heading"><span>Thread Title: </span><%= singleThread[0].title %></h1>
+                                <% } else { %>
+                                    <h1 class="thread_heading"><span>Thread Title: </span><%= singleThread[0].title %></h1>
+                                <% } %>
+                                <% singleThread[0].posts.forEach((post, i) => { %>
+                                    <div class="row">
+                                        <% if(parentForum == "Zombie") { %>
+                                            <div class="zombie_post">
+                                        <% } else { %>
+                                            <div class="post">
+                                        <% } %>
+                                            <div class="col-xs-12 post_header">
+                                                    <span><label>Post Created:</label><%= post.created %></span>
+                                                    <span><label>Post # </label><%= (i + 1) %></span>
+                                            </div>
+                                            <div class="post_content">
+                                                <div class="col-xs-3 post_info">
+                                                    <label>
+                                                        status
+                                                    </label>
+                                                    <img src="<%= '/img/global/user/' + post.author.local.profile_img %>" title="<%= '/img/' + post.author.local.profile_img %>" alt="<%= '/img/' + post.author.local.profile_img %>" class="img-responsive">
+                                                    <p>
+                                                        <label>Post Author: </label><strong><%= post.author.local.account.username %></strong>
+                                                    </p>
+                                                    <p>
+                                                        <label>Join date: </label>
+                                                        <span><%= post.author.local.created %></span>
+                                                    </p>
+                                                    <p>
+                                                        <label><strong>Author Thread & Post Count: </strong></label><br>
+                                                        <label class="sub_label">Posts: </label><span><strong><%= post.author.local.forum.postCount %></strong></span><br>
+                                                        <label class="sub_label">Threads: </label><span><strong><%= post.author.local.forum.threadCount %></strong></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-xs-9 post_body">
+                                                    <div>
+                                                        <p>
+                                                            <%= post.content %>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <hr/>
+                                                        <p>
+                                                            <%= post.author.local.signature %>
+                                                        </p>
+                                                    </div>
+                                                </diV>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            <% } %>
+                    </div>
+                <% } %>
+                <div>
+                    <form class="new_post_form" method="post" action="<%= '/forum/threads/newPost/' + singleThread[0]._id %>" novalidate>
+                        <h1>Add new Post</h1>
+                        <div class="form-group">
+                            <label for="post">Post Content: </label>
+                            <textarea class="form-control" id="post" name="post" required></textarea>
+                        </div>
+                        <button type="submit">Create Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+        <% include ../partials/footer %>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<% include ../../partials/head %>
+
+    <body>
+        <% include ../../partials/header %>
+            <div class="container profile_container">
+                <div class="row">
+                    <p>
+                        <% include ../../partials/locals_errors %>
+                        <% include ../../partials/form_errors %>
+                    </p>
+                    <% if(user) { %>
+                    <div class="profile_div">
+                        <form class="profile_form" method="post" action="/user/updateUser" enctype="multipart/form-data"> 
+                            <div class="profile_div">
+                                <h1 class="profile_heading">General Profile Settings</h1>
+                                <input type="text" class="hidden" id="user_role" name="role" value="${user.local.role}">
+                                <input type="text" class="hidden" id="oldImage" name="oldImage" value="${user.local.profile_img}">
+                                <img src=<%= "/img/global/" + user.local.profile_img %> alt="profile image" title="profile image" class="profile_img img-responsive">
+                                <label class="profile_img_label" >Upload Nyt Billede</label>
+                                <input type="file" name="userImage" id="userImage" accept="image/gif, image/jpeg, image/png">
+                                <img src="" id="preview" class="img-responsive">
+                                <section class="profile_p_section">
+                                    <p>
+                                        <label class="profile_label" for="username">Username: </label>
+                                        <input type="text" name="username" id="username" minlength="5" maxlength="100" value=<%= user.local.account.username %> required>
+                                    </p>
+                                    <p>
+                                        <label class="profile_label" for="name">Name: </label>
+                                        <input type="text" name="name" id="name" minlength="5" maxlength="100"  value=<%= user.local.contact_info.name %> required>
+                                    </p>
+                                    <p>
+                                        <label class="profile_label" for="email">E-mail Adress: </label>
+                                        <input type="email" name="email" id="email" minlength="6" maxlength="100"  value=<%= user.local.contact_info.email %> required>
+                                    </p>
+                                    <p>
+                                        <label class="profile_label" for="signature">Signature: </label>
+                                        <input type="text" name="signature" id="signature" value=<%= user.local.signature %> required>
+                                    </p>
+                                </section>
+                                <p>
+                                    <button type="submit" class="profile_ok">
+                                        <span class="glyphicon glyphicon-ok"></span> Update Profile Info
+                                    </button>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    <% } %>
+                </div>
+                <% include ../../partials/footer %>
+            </div>
+            <!-- /container -->
+    </body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <% include ../partials/head %>
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                    <h2 class="page-header">Register</h2>
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                    <% if(typeof(req_body) != 'undefined') { %>
+                        <% if(req_body) { %>
+                            <form method="post" action="/user/register" enctype="multipart/form-data">
+                                <input class="hidden" name="role" id="role" value="member">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" placeholder="Name" name="name" value=<%= req_body.name %> autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" placeholder="Username" name="username"  value=<%= req_body.username %> >
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Email" name="email"  value=<%= req_body.email %> >
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Email</label>
+                                    <input type="email" class="form-control" placeholder="Confirm Email" name="email2"  value=<%= req_body.email2 %> >
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" name="password2"  >
+                                </div>
+                                <div class="form-group">
+                                    <label>Create a Signature</label>
+                                    <input type="text" class="form-control" placeholder="Create a Signature" name="signature" value=<%= req_body.signature %> required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="profile_img_label" >Upload Nyt Billede</label>
+                                    <input type="file" name="userImage" id="userImage" accept="image/gif, image/jpeg, image/png">
+                                    <img src="" id="preview" class="img-responsive">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        <% } %>
+                    <% } else { %>
+                        <form method="post" action="/user/register" enctype="multipart/form-data">
+                            <input class="hidden" name="role" id="role" value="member">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" name="name"  autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" placeholder="Username" name="username"  >
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email"  >
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Email</label>
+                                <input type="email" class="form-control" placeholder="Confirm Email" name="email2"  >
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password"  >
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" class="form-control" placeholder="Confirm Password" name="password2"  >
+                            </div>
+                            <div class="form-group">
+                                <label>Create a Signature</label>
+                                <input type="text" class="form-control" placeholder="Create a Signature" name="signature" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="profile_img_label" >Upload Nyt Billede</label>
+                                <input type="file" name="userImage" id="userImage" accept="image/gif, image/jpeg, image/png">
+                                <img src="" id="preview" class="img-responsive">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    <% } %>
+        
+            </div>
+        </div>
+        <% include ../partials/footer %>
+    </div>
+    <!-- /container -->
+</body>
+
+</html>

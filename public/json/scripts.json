@@ -1,0 +1,34 @@
+{
+    "scripts": [
+        {
+            "id": 0,
+            "name": "user",
+            "link": "user.js"
+        },
+        {
+            "id": 1,
+            "name": "admin",
+            "link": "admin.js"
+        },
+        {
+            "id": 3,
+            "name": "validate",
+            "link": "validate.js"
+        },
+        {
+            "id": 4,
+            "name": "url_parameter",
+            "link": "url_parameter.js"
+        },
+        {
+            "id": 5,
+            "name": "table_file",
+            "link": "table_file.js"
+        },
+        {
+            "id": 6,
+            "name": "search",
+            "link": "search.js"
+        }
+    ]
+}

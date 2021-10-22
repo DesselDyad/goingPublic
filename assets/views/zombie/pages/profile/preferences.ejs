@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<% include ../../partials/head %>
+
+    <body>
+        <% include ../../partials/header %>
+            <div class="container profile_container">
+                <div class="row">
+                    <p>
+                        <% include ../../partials/locals_errors %>
+                        <% include ../../partials/form_errors %>
+                    </p>
+                    <% if(user) { %>
+                    <div class="profile_div">
+                        <form class="password_form">
+                            <section class="password_section">
+                                <div class="password_div">
+                                    <section class="password_p_section">
+                                    <h1 class="password_heading">Preferences</h1>
+                                    <h2 class="password_heading">Make profile private/public</h2>
+                                    <p>
+                                        <label for="profile_private" class="profile_private_label">Check to make profile public (searchable by others): </label>
+                                        <input type="checkbox" id="profile_private" name="profile_private">
+                                    </p>
+                                </div>
+                            </section>
+                        </form>
+                        <form class="theme_form">
+                            <section class="theme_section">
+                                <div class="theme_div">
+                                    <section class="theme_p_section">
+                                    <h2 class="theme_heading">Change Page Theme</h2>
+                                    <p>
+                                        <label for="theme_selector" class="theme_selector_label">Pick A Theme: </label>
+                                        <select id="theme_selector" name="theme_selector"></select>
+                                    </p>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                    <% } %>
+                </div>
+                <% include ../../partials/footer %>
+            </div>
+            <!-- /container -->
+    </body>
+
+</html>

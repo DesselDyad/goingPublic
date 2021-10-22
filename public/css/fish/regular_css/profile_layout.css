@@ -1,0 +1,168 @@
+.profile_container .row {
+    display: flex;
+    flex-direction: column;
+}
+
+.my_fish_container .row {
+    display: flex;
+    flex-direction: row;
+}
+
+.my_fish_container #edit_div {
+    width: 99%;
+    margin: auto;
+    text-align: center;
+}
+
+.my_fish_img {
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
+    margin: auto;
+    width: 60%;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.my_fish_btn_div .wrench, .my_fish_btn_div .delete {
+    margin-top: 50%;
+    height: 50px!important;
+    width: 50px!important;
+    border-radius: 10px;
+    
+}
+
+.social_div .row {
+    display: flex;
+    flex-direction: row;
+}
+.profile_img {
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
+    margin: auto;
+    width: 60%;
+    margin-bottom: 40px;
+}
+
+.profile_label, 
+.password_label, 
+.profile_img_label {
+    font-weight: bold;
+    color: orange;
+}
+
+.profile_span {
+    color: white;
+    font-weight: bold;
+}
+
+.profile_div, .password_p_section {
+    padding: 20px;
+}
+
+.profile_div input, .password_p_section input {
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#profile_a {
+    display: flex;
+    flex-direction: row;
+}
+
+#header_profile_img {
+    padding-left: 10px;
+    width: 50px;
+    border-radius: 15px;
+}
+
+.profile_heading, .password_heading {
+    color: white;
+    font-weight: bold;
+}
+
+.password_section, .theme_section {
+    background-color: rgba(34,34,34,1);
+}
+
+.theme_div {
+    padding: 15px;
+}
+
+.profile_div, .password_div, .theme_div {
+    background-color: rgba(54,54,54,1);
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.theme_heading {
+    color: white;
+    font-weight: bold;
+}
+
+.profile_wrench {
+    border: 2px solid rgba(114,114,114,1);
+    background-color: rgb(29, 238, 238);
+    height: 150%;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.profile_wrench span {
+    color: white;
+    font-weight: bold;
+}
+
+.profile_ok, .password_ok {
+    border: 2px solid rgba(114,114,114,1);
+    background-color: green;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.profile_ok span {
+    color: white;
+    font-weight: bold;
+}
+
+.profile_delete span {
+    color: white;
+    font-weight: bold;
+}
+.profile_delete {
+    border: 2px solid rgba(114,114,114,1);
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #FF0000;
+}
+
+.social_div label, .social_div p, .social_div span, .social_div h2 {
+    color: white;
+    font-weight: bold;
+}
+
+.social_div {
+    width: 100%;
+    margin: auto;
+}
+
+.social_sub_div {
+    padding: 20px;
+    width: 99%;
+    margin: auto;
+}
+
+.add_fish_profile_div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

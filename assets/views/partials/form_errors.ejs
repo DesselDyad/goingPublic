@@ -1,0 +1,13 @@
+<% if(user_err) { %>
+    <div class="alert alert-danger">Username has been taken already try new</div>
+<% } %>
+<% if(mail) { %>
+    <div class="alert alert-danger">Email has taken been already try new</div>
+<% } %>
+<% if(errors) { %>
+    <% errors.forEach(error => { %>
+        <div class="alert alert-danger">
+            <%= error.msg %>
+        </div>
+    <% }) %>
+<% } %>

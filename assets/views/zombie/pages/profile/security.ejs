@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<% include ../../partials/head %>
+
+    <body>
+        <% include ../../partials/header %>
+            <div class="container profile_container">
+                <div class="row">
+                    <p>
+                        <% include ../../partials/locals_errors %>
+                        <% include ../../partials/form_errors %>
+                    </p>
+                    <% if(user) { %>
+                    <div class="profile_div">
+                        <form class="password_form">
+                                <section class="password_section">
+                                    <div class="password_div">
+                                        <section class="password_p_section">
+                                        <h1 class="password_heading">Change Password</h1>
+                                        <h2 class="password_heading">Enter Old Password</h2>
+                                        <p>
+                                            <label for="old_password" class="password_label">Old password: </label>
+                                            <input type="text" id="old_password" name="old_password" autocomplete="off" autofocus required>
+                                        </p>
+                                        <p>
+                                            <span class="error_msg_span" id="old_pw_span"></span>
+                                        </p>
+                                        <h2 class="profile_heading">Enter New Password</h2>
+                                        <p>
+                                            <label for="new_password" class="password_label">Enter Password: </label>
+                                            <input type="text" id="new_password" name="new_password" required>
+                                        </p>
+                                        <p>
+                                            <label for="rep_new_password" class="password_label">Repeat Password: </label>
+                                            <input type="text" id="rep_new_password" name="rep_new_password" required>
+                                        </p>
+                                        <p>
+                                            <span class="error_msg_span" id="new_pw_span"></span>
+                                        </p>
+                                        <button id="submit_old_pw_btn" class="password_ok">Submit Old Password</button>
+                                    </div>
+                                </section>
+                            </form>
+                    </div>
+                    <% } %>
+                </div>
+                <% include ../../partials/footer %>
+            </div>
+            <!-- /container -->
+    </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<% include ../partials/head.ejs %>
+
+<body>
+    <% include ../partials/header.ejs %>
+        <div class="container">
+            <div class="row">
+                <div id="main" class="admin_main col-xs-10 col-xs-offset-1">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <% if(typeof(update_user_body) != 'undefined') { %>
+                                <% if(update_user_body != null && update_user_body != undefined) { %> 
+                                    <div id="edit_div" class="col-xs-12">
+                                            <form id="user_form" method="post" action=<%= "/admin/updateUser/" + update_user_body.params_id%> enctype="multipart/form-data" novalidate>
+                                                <h1>Edit User </h1>
+                                                <div>
+                                                    <label class="old_img_label" >Gammelt billede: </label>
+                                                    <img src=<%= "/img/global/user/" + update_user_body.fileName%> alt="<%= update_user_body.fileName %>" title="<%= update_user_body.fileName %>" class="profile_img img-responsive">
+                                                </div>
+                                                <div>
+                                                    <label class="profile_img_label" >Upload Nyt Billede</label>
+                                                    <input type="file" name="userImage" id="userImage" value=<%= update_user_body.fileName %>  accept="image/gif, image/jpeg, image/png" >
+                                                    <input type="text" name="oldImage" id="oldImage" value="<%= update_user_body.fileName %>"  class="hidden">
+                                                    <img src="" id="preview" class="img-responsive hidden">
+                                                </div>
+                                                <div>
+                                                    <label for="username">Username: </label>
+                                                    <input name="username" type="text" id="username" value=<%= update_user_body.username %> minlength="5" maxlength="50" required>
+                                                </div>
+                                                <div>
+                                                    <label for="name">Name: </label>
+                                                    <input name="name" type="text" id="name" value=<%= update_user_body.name %>  minlength="5" maxlength="50" required autofocus>
+                                                </div>
+                                                <div>
+                                                    <label for="email">E-mail Adress: </label>
+                                                    <input name="email" type="text" id="email" value=<%= update_user_body.email %>  required>
+                                                </div>
+                                                <div>
+                                                    <label for="email2">E-mail Adress: </label>
+                                                    <input name="email2" type="text" id="email2" value=<%= update_user_body.email2 %>  required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Change Signature</label>
+                                                    <input type="text" class="form-control" placeholder="Change Signature" name="signature"  value=<%= add_user_body.signature %> required>
+                                                </div>
+                                                <div>
+                                                    <label for="role">User Role: </label>
+                                                    <select name="role" type="text" id="role" value=<%= update_user_body.role %>  min="5" max="11">
+                                                        <% roles.forEach(role => { %>
+                                                            <option value=<%= role.name %>>
+                                                                <%= role.name %>
+                                                            </option>
+                                                        <% }) %>
+                                                    </select>
+                                                </div>
+                                                    <button type="submit" id=<%= update_user_body.params_id %> >Update</button>
+                                            </form>
+                                    </div>
+                                <% } %>
+                            <% } else { %>
+                                <div id="edit_div" class="col-xs-12 hidden">
+                                    
+                                </div>
+                            <% } %>
+                        </div>
+                        <% include ../partials/locals_errors.ejs %>
+                        <% include ../partials/form_errors.ejs %>
+                        <div id="admin_overview">
+                            <a href="/admin" title="/admin">
+                                <h1 class="overview_h1">Overblik</h1>
+                            </a>
+                        </div>
+                        <div class="col-xs-12" id="button_div">
+                            <% include admin_modules/button_overview.ejs %>
+                        </div>
+                        <br>
+                        <hr id="my_hr">
+                        <% include admin_modules/user.ejs %>
+                        <% include admin_modules/subscriber.ejs %>
+                        <% include admin_modules/fish.ejs %>
+                        <% include admin_modules/fish_species.ejs %>
+                        <% include admin_modules/location.ejs %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% include ../partials/footer.ejs %>
+</body>
+
+</html>

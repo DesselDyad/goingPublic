@@ -1,0 +1,69 @@
+{
+    "styles": [
+        {
+            "id": 0,
+            "name": "header_style",
+            "link": "header_style.css"
+        },
+        {
+            "id": 1,
+            "name": "header_layout",
+            "link": "header_layout.css"
+        },
+        {
+            "id": 2,
+            "name": "footer_style",
+            "link": "footer_style.css"
+        },
+        {
+            "id": 3,
+            "name": "footer_layout",
+            "link": "footer_layout.css"
+        },
+        {
+            "id": 4,
+            "name": "admin_layout",
+            "link": "admin_layout.css"
+        },
+        {
+            "id": 5,
+            "name": "admin_style",
+            "link": "admin_style.css"
+        },
+        {
+            "id": 6,
+            "name": "profile_style",
+            "link": "profile_style.css"
+        },
+        {
+            "id": 7,
+            "name": "profile_layout",
+            "link": "profile_layout.css"
+        },
+        {
+            "id": 8,
+            "name": "forms",
+            "link": "forms.css"
+        },
+        {
+            "id": 9,
+            "name": "crumbs",
+            "link": "breadcrumbs.css"
+        },
+        {
+            "id": 10,
+            "name": "zombie",
+            "link": "zombie.css"
+        },
+        {
+            "id": 11,
+            "name": "forum",
+            "link": "forum.css"
+        },
+        {
+            "id": 12,
+            "name": "latest",
+            "link": "latest.css"
+        }
+    ]
+}

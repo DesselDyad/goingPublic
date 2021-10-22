@@ -1,0 +1,154 @@
+<div class="container"><header>
+    <div class="navbar-header">
+        <button id="nav_burger_btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right pulls-right" id="header_list">
+            <li>
+                <a href="/" class="header_link">Home</a>
+            </li>
+            <li class="dropdown">
+                <a href="/zombiemania" class="dropdown-toggle zombie_header_list_a">
+                    <span>
+                    </span> ZombieMania
+                    <span class="caret">
+                    <span>
+                </a>
+                <ul class="dropdown-menu zombie_header_list">
+                    <% zombie.forEach(item => { %>
+                            <li class="dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                    </span> <%= item.title %>
+                                    <span class="caret">
+                                    <span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <% item.items.forEach(sub => { %>
+                                    <li >
+                                        <a href="<%=  sub.link %>" title="<%= sub.link %>">
+                                            <%= sub.name %>
+                                        </a>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </li>
+                    <% }) %>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="/forum" >
+                    <span>
+                    </span> Forum
+                    <span class="caret">
+                    <span>
+                </a>
+                <ul class="dropdown-menu">
+                    <% forums.forEach(forum => { %>
+                        <li class="dropdown-submenu">
+                            <% if(forum.title == 'Zombie') { %>
+                                <a href="<%= '/forum/' + forum._id %>" title="<%= '/forum/' + forum._id %>" class="zombie_header_forum">
+                                    <span>
+                                    </span> <%= forum.title %>
+                                    <span class="caret">
+                                    <span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <% forum.sub_forums.forEach(sub => { %>
+                                        <li >
+                                            <a href="<%= '/forum/sub_forum/' + sub._id %>" title="<%= '/forum/sub_forum/' + sub._id %>" class="zombie_header_subforum">
+                                                <%= sub.title %>
+                                            </a>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            <% } else { %>
+                                <a href="<%= '/forum/' + forum._id %>" title="<%= '/forum/' + forum._id %>" >
+                                    <span>
+                                    </span> <%= forum.title %>
+                                    <span class="caret">
+                                    <span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <% forum.sub_forums.forEach(sub => { %>
+                                        <li >
+                                            <a href="<%= '/forum/sub_forum/' + sub._id %>" title="<%= '/forum/sub_forum/' + sub._id %>">
+                                                <%= sub.title %>
+                                            </a>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            <% } %>
+                        </li>
+                    <% }) %>
+                </ul>
+            </li>
+            <li role="presentation">
+                <a href="/zombie_contact">Contact</a>
+            </li>
+            <li role="presentation">
+                <a href="/stats">Stats</a>
+            </li>
+            <% if(user) { %>
+            <li  role="dropdown-item presentation" class="dropdown">
+                <a href="/zombie/user/profile" class="nav-link">
+                    <img src=<%= "/zombie/img/global/user/" + user.local.profile_img %> title=<%= user.local.profile_img%> alt=<%= user.local.profile_img%> height="30">
+                    <span><%= user.local.account.username %></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu profile_dropdown_list">
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="/zombie/user/profile">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/zombie/user/profile/socialNetworking" class="nav-link">
+                            Social Networking
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/zombie/user/profile/security" class="nav-link">
+                            Security Settings
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/zombie/user/profile/edit_preferences" class="nav-link">
+                            Preferences & Privacy
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/zombie/user/profile/edit_personal_info" class="nav-link">
+                            Edit personal information
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="/user/logout">Logout</a>
+                    </li>
+                    <% if(user.local.role == "admin" || user.local.role == "moderator") { %>
+                    <li class="dropdown-item">
+                        <a class="nav-link" href="/admin">
+                            Control Panel
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </li>
+            <% } else { %>
+            <li role="dropdown-item presentation">
+                <a class="nav-link" href="/zombie/user/login">Login</a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <!-- /container -->
+    <div class="container">
+        <% include ./breadcrumbs.ejs %>
+    </div>
+    </header>
+</div>

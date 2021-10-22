@@ -1,0 +1,184 @@
+@font-face {
+    font-family: plasdrip;
+    src: url(../../../fonts/plasdrip.ttf);
+}
+@font-face {
+    font-family: plasdrpe;
+    src: url(../../../fonts/plasdrpe.ttf);
+}
+@font-face {
+    font-family: zfreaks;
+    src: url(../../../fonts/OpenType/zreaks\ nfi.otf);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// ZOMBIE CONTENT ///////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////// */
+
+#content {
+    /* FONT */
+    /* font-family: plasdrip; */
+    /* SIZE & SPACING */ 
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 200%;
+    /* COLOR */
+    background-color: rgba(74,74,74,1);
+    /* border: 5px solid rgba(34,34,34,1); */
+    color: white;
+    /* text-shadow: 0 0 5px darkred,0 0 5px darkred,0 0 5px darkred,0 0 5px darkred,0 0 5px darkred,0 0 5px darkred; */
+    /* BORDER */
+    padding:20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6,
+.page_header {
+    font-family: zfreaks;
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+}
+
+.page_header {
+    font-family: plasdrip;
+    font-size: 6.5vw;
+    text-align: center;
+}
+
+.zombie_wrapper {
+    background-color: rgba(34,34,34,1);
+    margin-top: 0;
+    padding-top: 50px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0px;
+}
+
+.zombie_content {
+    /* font-family: zfreaks; */
+    background-color: rgba(54,54,54,1);
+    padding: 20px;
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+    
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// ZOMBIE TABLES ////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+.zombie_table,
+.equipment_title {
+    /* border: 5px solid rgba(34,34,34,1); */
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-collapse: unset;
+    background-color: rgba(74,74,74,1);
+    font-size: 125%;
+    font-weight: bold;
+    line-height: 200%;
+}
+
+.zombie_table {
+    padding: 20px;
+    font-size: 75%;
+}
+
+.zombie_table td {
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(74,74,74,1);
+    padding: 20px;
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+}
+
+.zombie_table th,
+.equipment_title {
+    padding: 20px;
+    font-family: zfreaks;
+    color: darkred;
+    text-shadow: 0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white;
+}
+
+.zombie_table img {
+    height: 75px;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// ZOMBIE SIDEBAR ///////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////// */
+
+#sidebar_div {
+    background-color: rgba(74,74,74,1);
+    /* border: 5px solid rgba(34,34,34,1); */
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#sidebar_div ul {
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+#sidebar_div li {
+    text-align: center;
+    /* padding-top: 40px; */
+}
+
+.sidebar_category,
+.category_title,
+.sidebar_subcategory,
+.subcategory_item,
+.subcategory_title {
+    font-family: zfreaks;
+}
+
+.subcategory_title {
+    width: 100%;
+    display: block;
+}
+
+.sidebar_category {
+    list-style-type: none;
+}
+
+.category_title {
+    color: white;
+    text-shadow: 0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred,0 0 10px darkred;
+}
+
+.sidebar_subcategory {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.subcategory_item {
+    /* padding: 10px; */
+}
+
+.subcategory_title {
+    text-decoration: none;
+    color: darkred;
+    text-shadow: 0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white,0 0 10px white;
+    font-size: 125%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: rgba(34,34,34,1);
+
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.subcategory_title:hover {
+    background-color: rgba(94,94,94,1);
+    text-decoration: none;
+    color: darkred;
+}

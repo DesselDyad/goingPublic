@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% include ../partials/locals_errors %>
+                    <% include ../partials/form_errors %>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <!-- if a single FORUM was targeted -->
+                        <% if(typeof singleForum != 'undefined') { %>
+                            <% if(singleForum) { %>
+                                <div class="col-xs-8 col-xs-offset-2">
+                                    <% if(singleForum[0].title == "Zombie") { %>
+                                        <div class="zombie_forum_div">
+                                    <% } else { %> 
+                                        <div class="forum_div">
+                                    <% } %>
+                                    <div class="forum_div">
+                                            <h1 class="forum_heading">
+                                                <%= singleForum[0].title %>
+                                            </h1>
+                                            <table id="forum_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Sub-Forum
+                                                        </th>
+                                                        <th>
+                                                            Threads
+                                                        </th>
+                                                        <th>
+                                                            Posts
+                                                        </th>
+                                                        <th>
+                                                            Last Post
+                                                        </th>
+                                                    </tr>b
+                                                </thead>
+                                                <tbody>
+                                                    <% singleForum[0].sub_forums.forEach(forum => { %>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="forum_td_div">
+                                                                    <p>
+                                                                        <a href="<%= '/forum/sub_forum/' + forum._id %>" title="<%= '/forum/sub_forum/' + forum._id %>" class="subforum_heading">
+                                                                            <%= forum.title %>
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="forum_td_div">
+                                                                        <p>
+                                                                            <%= forum.threads.length %>
+                                                                        </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="forum_td_div">
+                                                                        <p>
+                                                                            <% let count = 0; %>
+                                                                            <% if(forum.threads.length > 0) { %>
+                                                                                <% forum.threads.forEach(thread => { %>
+                                                                                    <% count += thread.posts.length %>
+                                                                                <% }) %>
+                                                                            <% } %>
+                                                                            <% if(count != 0) { %>
+                                                                                <%= count %>
+                                                                            <% } else { %>
+                                                                                <%= 0 %>
+                                                                            <% } %>
+                                                                        </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="forum_td_div">
+                                                                    <div>
+                                                                        <% if(typeof forum.lastUpdate != 'undefined') { %>
+                                                                            <% if(typeof forum.lastUpdate.thread != 'undefined') { %>
+                                                                                <% if(forum.lastUpdate.thread) { %>
+                                                                                    <%= 'Thread:' %>
+                                                                                    <p>
+                                                                                        <%= 'Thread Creator: ' + forum.lastUpdate.thread.creator.local.account.username %> <br/>
+                                                                                        <%= 'Thread Created: ' + forum.lastUpdate.thread.created %>
+                                                                                    </p>
+                                                                                <% } %>
+                                                                            <% } %>
+                                                                            <% if(typeof forum.lastUpdate.post != 'undefined') { %>
+                                                                                <%= 'Post:' %>
+                                                                                <p>
+                                                                                    <%= 'Author: ' + forum.lastUpdate.post.author.local.account.username %> <br/>
+                                                                                    <%= 'Posted: ' + forum.lastUpdate.post.created %>
+                                                                                </p>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <% }) %>
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <!-- if a single SUB was targeted -->
+                        <% } else if(typeof singleSubForum != 'undefined') { %>
+                            <% if(singleSubForum) { %>
+                                <div class="col-xs-8 col-xs-offset-2">
+                                    <% if(parentForum == "Zombie") { %>
+                                        <div class="zombie_forum_div">
+                                    <% } else { %> 
+                                        <div class="forum_div">
+                                    <% } %>
+                                            <h1 class="forum_heading">
+                                                <%= singleSubForum[0].title %>
+                                            </h1>
+                                            <table id="forum_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Thread
+                                                        </th>
+                                                        <th>
+                                                            Posts
+                                                        </th>
+                                                        <th>
+                                                            Last Post
+                                                        </th>
+                                                        <th>
+                                                            Thread Created
+                                                        </th>
+                                                        <th>
+                                                            Thread Created By
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% singleSubForum[0].threads.forEach(thread => { %>
+                                                        <tr>
+                                                            <td>
+                                                                <p>
+                                                                    <a href="<%= '/forum/sub_forum/thread/' + thread._id %>" title="<%= '/forum/sub_forum/thread/' + thread._id %>" class="subforum_heading">
+                                                                        <%= thread.title %>
+                                                                    </a>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <p>
+                                                                    <% if(typeof thread.posts != 'undefined') { %>
+                                                                        <%= thread.posts.length %>
+                                                                    <% } else { %>
+                                                                        <%= 0 %>
+                                                                    <% } %>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <% if(typeof thread.lastUpdate != 'undefined') { %>
+                                                                    <%= 'Post:' %>
+                                                                    <p>
+                                                                        <%= 'Author: ' + thread.lastUpdate.author.local.account.username %> <br/>
+                                                                        <%= 'Posted: ' + thread.lastUpdate.created %>
+                                                                    </p>
+                                                                <% } %>
+                                                            </td>
+                                                            <td>
+                                                                <%= thread.created %>
+                                                            </td>
+                                                            <td>
+                                                                <%= thread.creator.local.account.username %>
+                                                            </td>
+                                                        </tr>
+                                                    <% }) %>
+                                                </tbody>
+                                            </table>
+                                            <div>
+                                                <form class="new_thread_form" method="post" action="<%= '/forum/threads/addNew/' + singleSubForum[0]._id %>" novalidate>
+                                                    <h2 class="forum_heading">Add new Thread</h2>
+                                                    <div class="form-group">
+                                                        <label for="title" class="subforum_heading">Title: </label>
+                                                        <input class="form-control" id="title" name="title" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="post" class="subforum_heading">First Post: </label>
+                                                        <textarea class="form-control" id="post" name="post" required></textarea>
+                                                    </div>
+                                                    <button type="submit" id="new_thread_btn">Create Thread</button>
+                                                </form> 
+                                            </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <!-- nothing specific was targeted, view forum overview, all forums and subforums -->
+                        <% } else { %>
+                            <% if(typeof forums != 'undefined') { %>
+                                <% if(forums) { %>
+                                    <div class="col-xs-8 col-xs-offset-2">
+                                        <div class="forum_div">
+                                            <uL>
+                                                <% forums.forEach(forum => { %>
+                                                    <li>
+                                                        <% if(forum.title == "Zombie") { %>
+                                                            <a href="<%= '/forum/' + forum._id %>" title="<%= '/forum/' + forum._id %>" class="zombie_forum forum_heading">
+                                                            <% } else { %> 
+                                                            <a href="<%= '/forum/' + forum._id %>" title="<%= '/forum/' + forum._id %>" class="forum_heading">
+                                                        <% } %>
+                                                            <h1><%= forum.title %></h1>
+                                                        </a>
+                                                        <table id="forum_table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        Forum
+                                                                    </th>
+                                                                    <th>
+                                                                        Threads
+                                                                    </th>
+                                                                    <th>
+                                                                        Posts
+                                                                    </th>
+                                                                    <th>
+                                                                        Last active Thread & Post
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% forum.sub_forums.forEach(sub => { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="forum_td_div">
+                                                                                <a href="<%= '/forum/sub_forum/' + sub._id %>" title="<%= '/forum/sub_forum/' + sub._id %>" class="subforum_heading">
+                                                                                    <%= sub.title %>
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p>
+                                                                                <%= sub.threads.length %>
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p>
+                                                                                <% let count = 0; %>
+                                                                                <% if(sub.threads.length > 0) { %>
+                                                                                    <% sub.threads.forEach(thread => { %>
+                                                                                        <% count += thread.posts.length %>
+                                                                                    <% }) %>
+                                                                                <% } %>
+                                                                                <% if(count != 0) { %>
+                                                                                    <%= count %>
+                                                                                <% } else { %>
+                                                                                    <%= 0 %>
+                                                                                <% } %>
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="lastupdate_div">
+                                                                                <% if(typeof sub.lastUpdate != 'undefined') { %>
+                                                                                    <% if(typeof sub.lastUpdate.thread != 'undefined') { %>
+                                                                                        <% if(sub.lastUpdate.thread) { %>
+                                                                                            <div>
+                                                                                                <%= 'Thread Title:' + sub.lastUpdate.thread.title %>
+                                                                                                <p>
+                                                                                                    <%= 'Thread Creator: ' + sub.lastUpdate.thread.creator.local.account.username %> <br/>
+                                                                                                    <%= 'Thread Created: ' + sub.lastUpdate.thread.created %>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        <% } %>
+                                                                                    <% } %>
+                                                                                    <% if(typeof sub.lastUpdate.post != 'undefined') { %>
+                                                                                        <% if(sub.lastUpdate.post) { %>
+                                                                                            <div>
+                                                                                                <%= 'Post:' %>
+                                                                                                <p>
+                                                                                                    <%= 'Author: ' + sub.lastUpdate.post.author.local.account.username %> <br/>
+                                                                                                    <%= 'Posted: ' + sub.lastUpdate.post.created %>
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        <% } %>
+                                                                                    <% } %>
+                                                                                <% } %>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                <% }) %>
+                                                            </tbody>
+                                                        </table>
+                                                    </li>
+                                                <% }) %>
+                                            </uL>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+        <% include ../partials/footer %>
+    </body>
+</html>

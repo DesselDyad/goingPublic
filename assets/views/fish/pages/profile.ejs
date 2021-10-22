@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/head %>
+
+    <body>
+        <% include ../partials/header %>
+            <div class="container profile_container">
+                <div class="row">
+                    <p>
+                        <% include ../partials/locals_errors %>
+                        <% include ../partials/form_errors %>
+                    </p>
+                    <% if(user) { %>
+                        <div class="profile_div col-xs-12">
+                            <h1 class="profile_heading">Profile Overview</h1>
+                            <p>
+                                <label class="profile_label">User-privileges: </label><span class="profile_span"><%= user.local.role %></span>
+                            </p>
+                            <img src=<%= "/img/global/user/" + user.local.profile_img %> alt="profile image" title="profile image" class="profile_img img-responsive">
+                            <section class="profile_p_section">
+                                <p>
+                                    <label class="profile_label">Username: </label>
+                                    <span class="profile_span"><%= user.local.account.username %></span>
+                                </p>
+                                <p>
+                                    <label class="profile_label">Name: </label>
+                                    <span class="profile_span"><%= user.local.contact_info.name %></span>
+                                </p>
+                                <p>
+                                    <label class="profile_label">E-mail Adress: </label>
+                                    <span class="profile_span"><%= user.local.contact_info.email %></span>
+                                </p>
+                                <p>
+                                    <label class="profile_label">Created Date: </label>
+                                    <span class="profile_span"><%= user.local.created %></span>
+                                </p>
+                                <p>
+                                    <label class="profile_label">Signature: </label>
+                                    <span class="profile_span"><%= user.local.signature %></span>
+                                </p>
+                            </section>
+                        </div>
+                    <% } %>
+                </div>
+                <% include ../partials/footer %>
+            </div>
+            <!-- /container -->
+    </body>
+
+</html>
