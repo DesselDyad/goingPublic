@@ -12,52 +12,74 @@
                 <div class="center col-xs-12">
                     <% if(typeof(singleLocation) != "undefined") { %>
                         <div class="swipe_div">
-                            <article>
-                                <section>
+                            <a id="type_a" href=<%= "/locations/getSingleLocation/" + singleLocation._id %> alt=<%= "/locations/getSingleLocation/" + singleLocation._id %> title=<%= "/locations/getSingleLocation/" + singleLocation._id %> >
+                                <h2 class="margin_bottom_40px">
+                                    <%= singleLocation.name %>
+                                </h2>
+                                <img src=<%="/img/fish/locations/" + singleLocation.location[0].images[0] %> alt=<%="/img/locations/" + singleLocation.location[0].images[0] %> title=<%="/img/locations/" + singleLocation.location[0].images[0] %> class="img-responsive" id="latest_img">
+                            </a>
+                            <div class="fish_wrapper row">
+                                <div class="fish_left col-xs-4">
                                     <p>
-                                        <a id="type_a" href=<%= "/singleLocation/" + singleLocation.location[0]._id %> alt=<%= "/singleLocation/" + singleLocation.location[0]._id %> title=<%= "/singleLocation/" + singleLocation.location[0]._id %> >
-                                            <h1>
-                                                <%= singleLocation.location[0].name%>
-                                            </h1>
-                                            <img src=<%="/img/fish/locations/" + singleLocation.location[0].images[0] %> alt=<%="/img/locations/" + singleLocation.location[0].images[0] %> title=<%="/img/locations/" + singleLocation.location[0].images[0] %> class="img-responsive" id="latest_img">
+                                        <span class="label_span">Description: </span>
+                                    </p>
+                                    <p>
+                                        <span class="label_span">External Reference: </span>
+                                    </p>
+                                </div>
+                                <div class="fish_right col-xs-8">
+                                    <p>
+                                        <span id="description_span"><%= singleLocation.location[0].description %></span>
+                                    </p>
+                                    <p>
+                                        <a href=<%= singleLocation.external_ref%> title=<%= singleLocation.location[0].external_ref%> alt=<%= singleLocation.location[0].external_ref%> >
+                                            <span id="reference_span">
+                                                <%= singleLocation.location[0].external_ref%>
+                                            </span>
                                         </a>
                                     </p>
-                                    <p>
-                                        <span class="label_span">Description: </span><span id="description_span"><%= singleLocation.location[0].description%></span>
-                                    </p>
-                                    <p>
-                                        <span class="label_span">External Reference: </span><span id="reference_span">
-                                        <a href=<%= singleLocation.location[0].external_ref%> title=<%= singleLocation.location[0].external_ref%> alt=<%= singleLocation.location[0].external_ref%> >
-                                            <%= singleLocation.location[0].external_ref%></span>
-                                        </a>
-                                    </p>
-                                </section>
-                            </article>
+                                </div>
+                            </div>
                         </div>
-                        <h2>Fishes caught in this location: </h2>
+                        <h2 class="margin_bottom_40px title_h2">Fishes caught in this location: </h2>
                         <% singleLocation.fishes.forEach(fish => { %>
                             <div class="swipe_div">
-                                <article>
-                                    <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
-                                        <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images[0] %> title=<%="/img/fish/" + fish.images[0] %> class="img-responsive" id="latest_img">
-                                    </a>
-                                    <section>
-                                        <p>
-                                            <span class="label_span">Description: </span><span id="description_span"><%= fish.description%></span>
-                                        </p>
+                                <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
+                                    <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive" id="latest_img">
+                                </a>
+                                <div class="fish_wrapper row">
+                                    <div class="fish_left col-xs-4">
                                         <p>
                                             <span class="label_span">Species: </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span" width="100">Weight: </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span" width="100">Location: </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Date Caught: </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Caught By: </span>
+                                        </p>
+                                        <p>
+                                            <span class="label_span">Description: </span>
+                                        </p>
+                                    </div>
+                                    <div class="fish_right col-xs-8">
+                                        <p>
                                             <a id="type_a" href=<%= "/singleFishSpecies/" + fish.species._id %> alt=<%= "/singleFishSpecies/" + fish.species._id %> title=<%= "/singleFishSpecies/" + fish.species._id %> >
-                                                <%= fish.species.name%>
+                                                <%= fish.species.name %>
                                             </a>
                                         </p>
                                         <p>
-                                            <span class="label_span" width="100">Weight: </span><span id="weight_span">
+                                            <span id="weight_span">
                                                 <%= fish.weight %> kg
                                             </span>
                                         </p>
                                         <p>
-                                            <span class="label_span" width="100">Location: </span>
                                             <span>
                                                 <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
                                                     <%= fish.location.name %>
@@ -65,48 +87,57 @@
                                             </span>
                                         </p>
                                         <p>
-                                            <span class="label_span">Date Caught: </span><span id="date_caught_span">
+                                            <span id="date_caught_span">
                                                 <a href=<%= "/loadSingleDate/" + fish.date_caught %> title=<%= "/loadSingleDate/" + fish.date_caught %> alt=<%= "/loadSingleDate/" + fish.date_caught %> >
                                                     <%= fish.date_caught %>
                                                 </a>
                                             </span>
                                         </p>
                                         <p>
-                                            <span class="label_span">Caught By: </span><span id="caught_by_span">
+                                            <span id="caught_by_span">
                                                 <%= fish.caught_by.local.account.username %>
                                             </span>
                                         </p>
-                                    </section>
-                                </article>
+                                        <p>
+                                            <span id="description_span">asdfsadf<%= fish.description %></span>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         <% }) %>
                     <% } else if( locations != "undefined" ) { %>
                         <% if(locations.length != 0) { %>
-                            <h1>Locations</h1>
+                            <h1 class="title_h2">Locations</h1>
                             <% locations.forEach(location => { %>
                                 <div class="swipe_div">
-                                    <article>
-                                        <section>
+                                    <a id="type_a" href=<%= "/locations/getSingleLocation/" + location._id %> alt=<%= "/locations/getSingleLocation/" + location._id %> title=<%= "/locations/getSingleLocation/" + location._id %> >
+                                        <h2 class="margin_bottom_40px">
+                                            <%= location.name%>
+                                        </h2>
+                                        <img src=<%="/img/fish/locations/" + location.images[0] %> alt=<%="/img/locations/" + location.images[0] %> title=<%="/img/locations/" + location.images[0] %> class="img-responsive" id="latest_img">
+                                    </a>
+                                    <div class="fish_wrapper row">
+                                        <div class="fish_left col-xs-4">
                                             <p>
-                                                <span class="label_span">Location: </span>
-                                                <a id="type_a" href=<%= "/locations/getSingleLocation/" + location._id %> alt=<%= "/locations/getSingleLocation/" + location._id %> title=<%= "/locations/getSingleLocation/" + location._id %> >
-                                                    <h2>
-                                                        <%= location.name%>
-                                                    </h2>
-                                                    <img src=<%="/img/fish/locations/" + location.images[0] %> alt=<%="/img/locations/" + location.images[0] %> title=<%="/img/locations/" + location.images[0] %> class="img-responsive" id="latest_img">
+                                                <span class="label_span">Description: </span>
+                                            </p>
+                                            <p>
+                                                <span class="label_span">External Reference: </span>
+                                            </p>
+                                        </div>
+                                        <div class="fish_right col-xs-8">
+                                            <p>
+                                                <span id="description_span"><%= location.description %></span>
+                                            </p>
+                                            <p>
+                                                <a href=<%= location.external_ref%> title=<%= location.external_ref%> alt=<%= location.external_ref%> >
+                                                    <span id="reference_span">
+                                                        <%= location.external_ref%>
+                                                    </span>
                                                 </a>
                                             </p>
-                                            <p>
-                                                <span class="label_span">Description: </span><span id="description_span"><%= location.description%></span>
-                                            </p>
-                                            <p>
-                                                <span class="label_span">External Reference: </span><span id="reference_span">
-                                                    <a href=<%= location.external_ref%> title=<%= location.external_ref%> alt=<%= location.external_ref%> >
-                                                        <%= location.external_ref%></span>
-                                                    </a>
-                                            </p>
-                                        </section>
-                                    </article>
+                                        </div>
+                                    </div>
                                 </div>
                             <% }) %>
                         <% } %>
