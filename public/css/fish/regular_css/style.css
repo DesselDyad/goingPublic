@@ -17,9 +17,13 @@ a:hover {
     cursor: pointer;
 }
 
-button:hover {
-    color: white;
-    background-color: rgba(34,34,34,1);
+.navbar-toggler {
+    color: rgba(0,0,0,0.8);
+    background-color: white;
+}
+
+.navbar-toggler-icon {
+    color: rgba(0,0,0,0.8);
 }
 
 .hidden {
@@ -47,6 +51,10 @@ button:hover {
     color: black;
 }
 
+.no_padding {
+    padding: 0;
+}
+
 /* searching stuff*/
 
 .search_a, .search_h1 {
@@ -71,19 +79,30 @@ button:hover {
 
 .center, 
 .center h1, h2 {
-    width: 85%;
+    width: 90%;
     margin: auto;
     text-align: center;
 }
 
+.frontpage_wrapper {
+    margin-top: 15px;
+    background-color: rgba(0,0,0,0.8);
+    padding: 30px;
+
+}
+
 .swipe_div {
-    width: 99%;
-    margin: auto;
+    /* width: 100%; */
     border-radius: 10px;
-    /* border: 5px solid rgba(34,34,34,1); */
+    background-color: rgba(0,0,0,0.8);
     padding: 20px;
     margin: 20px;
     font-weight: bold;
+}
+
+.frontpage_outer_wrapper {
+    /* padding: 20px; */
+    /* width: 40%; */
 }
 
 .small_image {
@@ -105,13 +124,38 @@ button:hover {
 
 .title_h2 {
     font-weight: bold;
-    font-size: 3.5vw;
+    font-size: 2vw;
     text-decoration: underline;
     color: rgba(256,128,0,1);
     /* color: white; */
 }
-.species_name_title {
+
+.small_title_h2 {
+    color: white;
+}
+
+.small_title_h2:hover {
+    color: rgba(256,128,0,1);
+}
+
+.small_title_h2 h2 {
+    font-weight: bold;
+    font-size: 1vw;
+    text-decoration: underline;
+    padding-bottom: 20px;
+}
+
+.species_name_title, 
+.location_name_title {
     color: white;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 1.5vw;
+}
+
+.frontpage_img {
+    box-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white;
+}
+
+.frontpage_img:hover {
+    box-shadow: 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1);
 }

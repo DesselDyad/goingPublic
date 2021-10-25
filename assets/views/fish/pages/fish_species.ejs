@@ -15,7 +15,7 @@
                         <% singleFishSpecies.forEach(fish => { %>
                             <div class="swipe_div">
                                 <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
-                                    <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive" id="latest_img">
+                                    <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive latest_img">
                                 </a>
                                 <div class="fish_wrapper row">
                                     <div class="fish_left col-xs-4">
@@ -51,7 +51,7 @@
                                         </p>
                                         <p>
                                             <span>
-                                                <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
+                                                <a id="location_a" href=<%= "/locations/getSingleLocation/" + fish.location._id %> title=<%= "/locations/getSingleLocation/" + fish.location._id %> alt=<%= "/locations/getSingleLocation/:" + fish.location._id %> >
                                                     <%= fish.location.name %>
                                                 </a>
                                             </span>
@@ -84,7 +84,7 @@
                                         <h2 class="margin_bottom_40px species_name_title">
                                             <%= species.name %>
                                         </h2>
-                                        <img src=<%="/img/fish/fish_species/" + species.images[0] %> alt=<%="/img/fish_species/" + species.images[0] %> title=<%="/img/fish_species/" + species.images[0] %> class="img-responsive" id="latest_img">
+                                        <img src=<%="/img/fish/fish_species/" + species.images[0] %> alt=<%="/img/fish_species/" + species.images[0] %> title=<%="/img/fish_species/" + species.images[0] %> class="img-responsive latest_img">
                                     </a>
                                     <div class="fish_wrapper row">
                                         <div class="fish_left col-xs-4">

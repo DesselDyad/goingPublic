@@ -16,7 +16,7 @@
                                 <h2 class="margin_bottom_40px">
                                     <%= singleLocation.name %>
                                 </h2>
-                                <img src=<%="/img/fish/locations/" + singleLocation.location[0].images[0] %> alt=<%="/img/locations/" + singleLocation.location[0].images[0] %> title=<%="/img/locations/" + singleLocation.location[0].images[0] %> class="img-responsive" id="latest_img">
+                                <img src=<%="/img/fish/locations/" + singleLocation.location[0].images[0] %> alt=<%="/img/locations/" + singleLocation.location[0].images[0] %> title=<%="/img/locations/" + singleLocation.location[0].images[0] %> class="img-responsive latest_img">
                             </a>
                             <div class="fish_wrapper row">
                                 <div class="fish_left col-xs-4">
@@ -45,7 +45,7 @@
                         <% singleLocation.fishes.forEach(fish => { %>
                             <div class="swipe_div">
                                 <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
-                                    <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive" id="latest_img">
+                                    <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive latest_img">
                                 </a>
                                 <div class="fish_wrapper row">
                                     <div class="fish_left col-xs-4">
@@ -111,10 +111,10 @@
                             <% locations.forEach(location => { %>
                                 <div class="swipe_div">
                                     <a id="type_a" href=<%= "/locations/getSingleLocation/" + location._id %> alt=<%= "/locations/getSingleLocation/" + location._id %> title=<%= "/locations/getSingleLocation/" + location._id %> >
-                                        <h2 class="margin_bottom_40px">
+                                        <h2 class="margin_bottom_40px location_name_title">
                                             <%= location.name%>
                                         </h2>
-                                        <img src=<%="/img/fish/locations/" + location.images[0] %> alt=<%="/img/locations/" + location.images[0] %> title=<%="/img/locations/" + location.images[0] %> class="img-responsive" id="latest_img">
+                                        <img src=<%="/img/fish/locations/" + location.images[0] %> alt=<%="/img/locations/" + location.images[0] %> title=<%="/img/locations/" + location.images[0] %> class="img-responsive latest_img">
                                     </a>
                                     <div class="fish_wrapper row">
                                         <div class="fish_left col-xs-4">

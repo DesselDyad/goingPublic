@@ -3,11 +3,17 @@
   flex-direction: row;
 }
 
-#latest_img {
-  width: 100%;
+.latest_img {
+  width: 75%;
   border-radius: 10px;
-  box-shadow: 0 0 20px white, 0 0 20px white, 0 0 20px white, 0 0 20px white, 0 0 20px white, 0 0 20px white;
+  box-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white;
+  margin: auto;
+  margin-top: 35px;
   margin-bottom: 20px;
+}
+
+.latest_img:hover {
+    box-shadow: 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1);
 }
 
 .fish_right{

@@ -13,39 +13,55 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="row">
-                        <div class="col-xs-6">
-                            <h2>
-                                Check out the pictures from our latest trip...
-                            </h2>
-                            <a href= <%= "/loadSingleDate/" + dashboard_data.latest_location[0].date_caught %>>
-                                <img src= <%= "/img/fish/locations/" + dashboard_data.latest_location[0].location.images[0] %> class="img-responsive">
-                            </a>
+                        <div class="col-xs-6 no_padding">
+                            <div class="frontpage_wrapper center">
+                                <a class="small_title_h2" href= <%= "/loadSingleDate/" + dashboard_data.latest_location[0].date_caught %>>
+                                    <h2>
+                                        Check out the pictures from our latest trip...
+                                    </h2>
+                                </a>
+                                <a href= <%= "/loadSingleDate/" + dashboard_data.latest_location[0].date_caught %>>
+                                    <img src= <%= "/img/fish/locations/" + dashboard_data.latest_location[0].location.images[0] %> class="img-responsive frontpage_img">
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <h2>
-                                Check out some of the latest couple of fish we caught...
-                            </h2>
-                            <a href= "/fish">
-                                <img src= <%= "/img/fish/locations/" + dashboard_data.latest_location[0].images[0] %> class="img-responsive">
-                            </a>
+                        <div class="col-xs-6 no_padding">
+                            <div class="frontpage_wrapper center">
+                                <a href= "/fish" class="small_title_h2">
+                                    <h2>
+                                        Check out some of the latest couple of fish we caught...
+                                    </h2>
+                                </a>
+                                <a href= "/fish">
+                                    <img src= <%= "/img/fish/locations/" + dashboard_data.latest_location[0].images[0] %> class="img-responsive frontpage_img">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6">
-                            <h2>
-                                Check out some of our personal records...
-                            </h2>
-                            <a href= "/records">
-                                <img src= <%= "/img/fish/fish/" + dashboard_data.record[0].images[0] %> class="img-responsive">
-                            </a>
+                        <div class="col-xs-6 no_padding">
+                            <div class="frontpage_wrapper center">
+                                <a href= "/records" class="small_title_h2">
+                                    <h2>
+                                        Check out some of our personal records...
+                                    </h2>
+                                </a>
+                                <a href= "/records">
+                                    <img src= <%= "/img/fish/fish/" + dashboard_data.record[0].images[0] %> class="img-responsive frontpage_img">
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <h2>
-                                Check out some of the places that we've been...
-                            </h2>
-                            <a href= "/locations">
-                                <img src= <%= "/img/fish/locations/" + dashboard_data.location.images[0] %> class="img-responsive">
-                            </a>
+                        <div class="col-xs-6 no_padding">
+                            <div class="frontpage_wrapper center">
+                                <a href= "/locations" class="small_title_h2">
+                                    <h2>
+                                        Check out some of the places that we've been...
+                                    </h2>
+                                </a>
+                                <a href= "/locations">
+                                    <img src= <%= "/img/fish/locations/" + dashboard_data.location.images[0] %> class="img-responsive frontpage_img">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

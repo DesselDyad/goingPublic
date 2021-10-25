@@ -14,7 +14,7 @@
                         <% if(singleFish.length != 0) { %>
                             <div class="swipe_div">
                                 <a href=<%="/singleFish/" + singleFish[0]._id %> alt=<%="/singleFish/" + singleFish[0]._id %> title=<%="/singleFish/" + singleFish[0]._id %> >
-                                    <img src=<%="/img/fish/fish/" + singleFish[0].images[0] %> alt=<%="/img/fish/" + singleFish[0].images[0] %> title=<%="/img/fish/" + singleFish[0].images[0] %> class="img-responsive" id="latest_img">
+                                    <img src=<%="/img/fish/fish/" + singleFish[0].images[0] %> alt=<%="/img/fish/" + singleFish[0].images[0] %> title=<%="/img/fish/" + singleFish[0].images[0] %> class="img-responsive latest_img">
                                 </a>
                                 <div class="fish_wrapper row">
                                     <div class="fish_left col-xs-4">
@@ -96,7 +96,7 @@
                             <% latest.fish.forEach(fish => { %>
                                 <div class="swipe_div">
                                     <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
-                                        <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive" id="latest_img">
+                                        <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive latest_img">
                                     </a>
                                     <div class="fish_wrapper row">
                                         <div class="fish_left col-xs-4">
