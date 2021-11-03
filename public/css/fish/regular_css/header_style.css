@@ -6,7 +6,7 @@ header {
 
 .container {
     /* background-color: black !important; */
-    background-color: rgba(0,0,0,0.6);
+    /* background-color: rgba(0,0,0,0.6); */
     /* width: 100%; */
 }
 
@@ -19,7 +19,21 @@ header {
 }
  
 .navbar-expand-md .navbar-nav {
-    width: 50%;
+    /* width: 100%; */
+}
+
+#navbar_searchbar {
+    float: none !important;
+    margin-left: 1.5%;
+    margin-right: 3.5%;
+}
+
+.ml-auto, .mx-auto {
+    margin: auto !important;
+}
+
+.navbar-nav {
+    text-align: center !important;
 }
 
 header a {

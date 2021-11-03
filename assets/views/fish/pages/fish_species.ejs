@@ -11,7 +11,7 @@
                 </div>
                 <div class="center col-xs-12">
                     <% if( typeof(singleFishSpecies) != "undefined" && singleFishSpecies.length != 0) { %>
-                        <h2 class="title_h2"><%= singleFishSpecies[0].species.name %></h2>
+                        <h1><%= singleFishSpecies[0].species.name %></h1>
                         <% singleFishSpecies.forEach(fish => { %>
                             <div class="swipe_div">
                                 <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
@@ -77,7 +77,7 @@
                         <% }) %>
                     <% } else if( fish_species != "undefined" ) { %>
                         <% if(fish_species.length != 0) { %>
-                            <h2 class="title_h2">Fish Species that have been successfully caught</h2>
+                            <h1>Fish Species that have been successfully caught</h1>
                             <% fish_species.forEach(species => { %>
                                 <div class="swipe_div">
                                     <a id="type_a" href=<%= "/singleFishSpecies/" + species._id %> alt=<%= "/singleFishSpecies/" + species._id %> title=<%= "/singleFishSpecies/" + species._id %> >

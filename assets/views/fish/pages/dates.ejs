@@ -11,7 +11,7 @@
                 </div>
                 <div class="center col-xs-12">
                     <% if(typeof(singleDate) != 'undefined') { %>
-                        <h1 class="title_h2">Fishes caught on: <%= singleDate[0].date_caught %></h1>
+                        <h1>Fishes caught on: <%= singleDate[0].date_caught %></h1>
                         <% singleDate.forEach(fish => { %>
                             <div class="swipe_div">
                                 <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
@@ -51,7 +51,7 @@
                                         </p>
                                         <p>
                                             <span>
-                                                <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
+                                                <a id="location_a" href=<%= "/locations/getSingleLocation/" + fish.location._id %> title=<%= "/locations/getSingleLocation/" + fish.location._id %> alt=<%= "/locations/getSingleLocation/:" + fish.location._id %> >
                                                     <%= fish.location.name %>
                                                 </a>
                                             </span>
@@ -77,7 +77,7 @@
                         <% }) %>
                     <% } else if( dates != "undefined" ) { %>
                         <% if(dates.length != 0) { %>
-                            <h1 class="title_h2">Dates</h1>
+                            <h1>Dates</h1>
                             <% dates.forEach(date => { %>
                                 <p>
                                     <a id="type_a" href=<%= "/loadSingleDate/" + date %> alt=<%= "/loadSingleDate/" + date %> title=<%= "/loadSingleDate/" + date %> >

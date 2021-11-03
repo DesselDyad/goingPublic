@@ -17,15 +17,6 @@ a:hover {
     cursor: pointer;
 }
 
-.navbar-toggler {
-    color: rgba(0,0,0,0.8);
-    background-color: white;
-}
-
-.navbar-toggler-icon {
-    color: rgba(0,0,0,0.8);
-}
-
 .hidden {
     display: none;
 }
@@ -122,15 +113,23 @@ a:hover {
     margin-bottom: 40px;
 }
 
-.title_h2 {
+h1 {
     font-weight: bold;
-    font-size: 2vw;
-    text-decoration: underline;
+    font-size: 3vw;
     color: rgba(256,128,0,1);
     /* color: white; */
 }
 
+.title_h2 {
+    font-weight: bold;
+    font-size: 2vw;
+    text-decoration: underline;
+    /* color: rgba(256,128,0,1); */
+    color: white;
+}
+
 .small_title_h2 {
+    /* color: rgba(256,128,0,1); */
     color: white;
 }
 
