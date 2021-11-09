@@ -1,15 +1,23 @@
 .horizontal {
   display: flex;
   flex-direction: row;
+  padding: 25px;
+  padding-left: 65px !important;
+  padding-right: 65px !important;
 }
 
 .latest_img {
-  width: 75%;
+  width: 85%;
   border-radius: 10px;
   box-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white;
   margin: auto;
   margin-top: 35px;
   margin-bottom: 20px;
+}
+
+#single_fish_img {
+  display: inline-block;
+  width: 75% !important;
 }
 
 .latest_img:hover {
@@ -26,6 +34,14 @@
   color: rgba(256, 128, 0, 1);
 }
 
+.fish_right,
+.fish_left {
+  font-size: 150%;
+}
+
 .fish_wrapper {
   padding: 20px;
+  width: 75%;
+  margin: auto;
+  background-color: rgba(24, 24, 24, 0.85);
 }

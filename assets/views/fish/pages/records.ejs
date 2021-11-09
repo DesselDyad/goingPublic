@@ -12,9 +12,11 @@
                 <div class="center col-xs-12">
                     <h1>Records</h1>
                     <% if(typeof(singleSpeciesRecords) != "undefined") { %>
-                        <h2>
-                            <%= singleSpeciesRecords[0].species.name %>
-                        </h2>
+                        <a id="type_a" href=<%= "/singleFishSpecies/" + singleSpeciesRecords[0].species._id %> alt=<%= "/singleFishSpecies/" + singleSpeciesRecords[0].species._id %> title=<%= "/singleFishSpecies/" + singleSpeciesRecords[0].species._id %> >
+                            <h2 class="title_h2">
+                                <%= singleSpeciesRecords[0].species.name %>
+                            </h2>
+                        </a>
                         <% singleSpeciesRecords.forEach(fish => { %>
                                     <div class="swipe_div">
                                         <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
@@ -81,9 +83,12 @@
                     <% } else if( records != "undefined" ) { %>
                         <% if(records.length != 0) { %>
                             <% records.forEach(record => { %>
-                                <h2 class="title_h2">
+                                <a id="type_a" href=<%= "/singleFishSpecies/" + record[0].species._id %> alt=<%= "/singleFishSpecies/" + record[0].species._id %> title=<%= "/singleFishSpecies/" + record[0].species._id %> >
+                                    <h2 class="title_h2">
+                                        <%= record[0].species.name %>
+                                    </h2>
+                                </a>
                                     <%= record[0].species.name %>
-                                </h2>
                                 <% record.forEach(fish => { %>
                                     <div class="swipe_div">
                                         <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >

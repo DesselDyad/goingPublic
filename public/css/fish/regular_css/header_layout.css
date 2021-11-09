@@ -17,6 +17,7 @@ header a:hover {
 .navbar {
     /* background-color: rgba(34,34,34,0.8); */
     padding: 20px;
+    background-image: url("../../../img/fish/swipe_background_3.jpg");
 }
 
 .operations_div, #operations-collapse {

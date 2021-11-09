@@ -141,8 +141,8 @@
     </header>
 </div> -->
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Home</a>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/" id="home_link_fish">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -202,18 +202,17 @@
                         <%})%>
                     </ul>
                 </li>
-                <li role="dropdown-item presentation">
+                <!-- <li role="dropdown-item presentation">
                     <a class="nav-link override_background" href="/fish_contact">Contact</a>
-                </li>
-                <li role="dropdown-item presentation">
+                </li> -->
+                <!-- <li role="dropdown-item presentation">
                     <a class="nav-link override_background" href="/stats">Stats</a>
-                </li>
+                </li> -->
                 <% if(user) { %>
                 <li  role="dropdown-item presentation" class="dropdown">
                     <a href="/fish/user/profile" class="nav-link override_background">
                         <img src=<%= '/img/global/user/' + user.local.profile_img%> title=<%= user.local.profile_img%> alt=<%= user.local.profile_img%> height="30">
-                        <span><%= user.local.account.username %></span>
-                        <span class="caret"></span>
+                        <!-- <span> <%= user.local.account.username %></span> -->
                     </a>
                     <ul class="dropdown-menu profile_dropdown_list">
                         <li class="dropdown-item">

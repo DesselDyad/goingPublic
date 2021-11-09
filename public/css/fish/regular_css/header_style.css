@@ -10,16 +10,40 @@ header {
     /* width: 100%; */
 }
 
+.navbar-light .navbar-toggler {
+    background-color: white;
+    color: rgba(0,0,0,1);
+    /* border-color: rgba(0,0,0,1); */
+    border: 3px solid rgba(0,0,0,1);
+}
+
 .container {
-    width: 50%;
-    padding-right: 15px;
-    padding-left: 15px;
+    width: 99%;
     margin-right: auto;
     margin-left: auto;
+}
+
+.container, 
+.col-xs-12 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
 }
  
 .navbar-expand-md .navbar-nav {
     /* width: 100%; */
+}
+
+#home_link_fish {
+    font-size: 400%;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1);
+    padding-top: 0 !important;
+}
+
+#home_link_fish:hover {
+    color: rgba(256, 126, 0, 1);
+    background-color: rgba(256, 126, 0, 0);
+    text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white;
 }
 
 #navbar_searchbar {
@@ -37,8 +61,8 @@ header {
 }
 
 header a {
+    font-size: 150%;
     color: white !important;
-    padding: 10px;
     font-weight: bold;
 }
 
@@ -69,15 +93,17 @@ header a:hover {
 .override_background {
     color: rgba(255,255,255,1);
     background-color: rgba(34,34,34,0) !important;
+    display: flex;
+    flex-direction: row;
 }
 
 .override_background:hover {
     color: rgba(255,255,255,1) !important;
 }
 
-.navbar-nav .nav-link {
+.navbar-expand-md .navbar-nav .nav-link {
     font-weight: bold;
-    padding: 10px;
+    padding: 15px;
     margin: 5px;
     background-color: rgba(34,34,34,1) !important;
     border-top-right-radius: 10px;
