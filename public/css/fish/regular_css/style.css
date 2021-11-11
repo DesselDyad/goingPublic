@@ -1,17 +1,6 @@
 body {
-    /* background-image: url('/img/concrete.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* background-color: white; */
     background-image: url("../../../img/fish/background.jpg");
 }
-
-/* .container {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-} */
 
 #main {
     margin-bottom: 20px;
@@ -38,16 +27,6 @@ a:hover {
     font-weight: bold;
 }
 
-.delete {
-    background-color: #FF0000;
-}
-
-.wrench {
-    background-color: rgb(29, 238, 238);
-    height: 150%;
-    padding: 10px;
-    color: black;
-}
 
 .no_padding {
     padding: 0;
@@ -94,10 +73,17 @@ a:hover {
     border-radius: 10px;
     background-color: rgba(0,0,0,0.8);
     padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 20px;
+    padding-bottom: 25px;
+    margin-bottom: 40px;
     font-weight: bold;
-    background-image: url("../../../img/fish/swipe_background_2.jpg");
+    background-image: url("../../../img/fish/swipe_background_5.jpg");
+    background-size: cover;
+}
+
+#swipe_div_container {
+    width: 90% !important;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
 .frontpage_outer_wrapper {
@@ -137,9 +123,23 @@ h1 {
     text-decoration: underline;
     /* color: rgba(256,128,0,1); */
     color: white;
+    text-shadow: 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1), 0 0 3px rgba(256, 128, 0, 1);
     background-image: url('../../../img/fish/heading_background_2.jpg');
     width: 100%;
     padding: 20px;
+}
+
+.date_a {
+    color: white;
+}
+
+.date_a:hover {
+    color: rgba(256,128,0,1);
+}
+
+.title_h2:hover {
+    color: rgba(256, 128, 0, 1);
+    text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white;
 }
 
 .index_h2 {
@@ -179,4 +179,10 @@ h1 {
 
 .frontpage_img:hover {
     box-shadow: 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1);
+}
+
+.alert, .alert-success {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
 }

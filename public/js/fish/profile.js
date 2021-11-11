@@ -111,45 +111,46 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    if(document.querySelector('#theme_selector')) {
+    // if(document.querySelector('#theme_selector')) {
         fetch('http://localhost:3000/user/getSingle')
         .then(result => {return result.json()})
         .then(user => {
-            console.log('does get here');
-            console.log($);
-            $.getJSON('../json/styles.json', styles => {
-                console.log('doesnt get here');
-                styles.styles.forEach(style => {
-                    console.log(style);
-                    document.querySelector('#theme_selector').innerHTML += `
-                        <option data-link="${style.link}" value="${style.link}">${style.name}</option>
-                    `;
-                })
-                document.querySelector('#theme_selector').querySelectorAll('option').forEach(option => {
-                    if(option.value == user.local.preferences.theme) {
-                        option.selected = true;
-                    }
-                })
-                document.querySelector('#theme_selector').style.color = "black";
-                document.querySelector('#theme_selector').addEventListener('change', (e) => {
-                    let options = document.querySelector('#theme_selector').querySelectorAll('option');
-                    document.querySelector('#dyn_sheet').href = '/css/user_specific_sheets/' + options[document.querySelector('#theme_selector').selectedIndex].dataset.link;
-                    fetch('http://localhost:3000/user/updateUserTheme/' + options[document.querySelector('#theme_selector').selectedIndex].value)
-                    .then(result => {
-                        localStorage.setItem('success_msg', 'Theme updated!');
-                        window.location.assign(window.location.href);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-                })
-            });
+            // console.log('does get here');
+            // console.log($);
+            // $.getJSON('../json/styles.json', styles => {
+            //     console.log('doesnt get here');
+            //     styles.styles.forEach(style => {
+            //         console.log(style);
+            //         document.querySelector('#theme_selector').innerHTML += `
+            //             <option data-link="${style.link}" value="${style.link}">${style.name}</option>
+            //         `;
+            //     })
+            //     document.querySelector('#theme_selector').querySelectorAll('option').forEach(option => {
+            //         if(option.value == user.local.preferences.theme) {
+            //             option.selected = true;
+            //         }
+            //     })
+            //     document.querySelector('#theme_selector').style.color = "black";
+            //     document.querySelector('#theme_selector').addEventListener('change', (e) => {
+            //         let options = document.querySelector('#theme_selector').querySelectorAll('option');
+            //         document.querySelector('#dyn_sheet').href = '/css/user_specific_sheets/' + options[document.querySelector('#theme_selector').selectedIndex].dataset.link;
+            //         fetch('http://localhost:3000/user/updateUserTheme/' + options[document.querySelector('#theme_selector').selectedIndex].value)
+            //         .then(result => {
+            //             localStorage.setItem('success_msg', 'Theme updated!');
+            //             window.location.assign(window.location.href);
+            //         })
+            //         .catch(err => {
+            //             console.log(err);
+            //         })
+            //     })
+            // });
     
             let selector = document.querySelector('input[name=profile_private]');
             if(user.local.preferences.profile_searchable) {
                 selector.checked = true;
             }
             selector.addEventListener('change', event => {
+                console.log('change!');
                 if (selector.checked) {
                     fetch('http://localhost:3000/user/makeProfilePublic')
                     .then(result => {
@@ -174,7 +175,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .catch(e => {
             console.log(e);
         })
-    }
+    // }
 })
 
 /**

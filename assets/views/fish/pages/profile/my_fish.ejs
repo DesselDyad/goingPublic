@@ -11,206 +11,275 @@
                         <% include ../../partials/form_errors %>
                     </p>
                     <% if(user) { %>
+                        <div class="col-xs-12 profile_container">
+                            <div class="row">
+                                <nav class="navbar navbar-expand-xl navbar-light bg-light" id="profile_nav">
+                                    <a class="navbar-brand" href="/fish/user/profile" id="home_link_fish">
+                                        <div id="heading_container">
+                                            <h2 class="profile_h2">
+                                                <%= user.local.account.username %>
+                                            </h2>
+                                            <p class="profile_heading_span"><%= user.local.role %></p>
+                                        </div>
+                                    </a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav justify-content-end">
+                                            <li role="dropdown-item presentation">
+                                                <a class="nav-link override_background" href="/fish/user/profile/myFish">
+                                                    My Fish
+                                                </a>
+                                            </li>
+                                            <li role="dropdown-item presentation">
+                                                <a class="nav-link override_background" href="/fish/user/profile/socialNetworking">
+                                                    Socials
+                                                </a>
+                                            </li>
+                                            <li role="dropdown-item presentation">
+                                                <a class="nav-link override_background" href="/fish/user/profile/security">
+                                                    Security
+                                                </a>
+                                            </li>
+                                            <li role="dropdown-item presentation">
+                                                <a class="nav-link override_background" href="/fish/user/profile/edit_preferences">
+                                                    Preferences & Privacy
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12 add_fish_profile_div">
+                                            <a href="/fish/user/profile/myFish">
+                                                <h1 id="my_fish_h1">
+                                                    My Fish
+                                                </h1>
+                                            </a>
+                                            <button class="add_fish_btn">Add Fish </button>
+                                            <% if(typeof(add_fish_body) != 'undefined') { %>
+                                                <div class="add_fish_div">
+                                            <% } else { %>
+                                                <div class="add_fish_div hidden">
+                                            <% }%>
+                                                <form id="new_fish_form" method="post" action="/admin/fish/addFish" enctype="multipart/form-data" novalidate>
+                                                    <% if(typeof(add_fish_body) != 'undefined') { %>
+                                                        <% if(add_fish_body) { %>
+                                                            <section class="add_fish_section">
+                                                                <hr>
+                                                                    <div class="col-xs-12 col-md-6">
+                                                                        <p class="form-group">
+                                                                            <label for="species">Fish Species: </label>
+                                                                            <select name="species" type="text" id="role" placeholder="Species" value=<%= add_fish_body.species %> required>
+                                                                                <% fish_species.forEach(type => { %>
+                                                                                    <option value=<%= type.id %>>
+                                                                                        <%= type.name %>
+                                                                                    </option>
+                                                                                <% }) %>
+                                                                            </select>
+                                                                        </p>
+                                                                        <p class="form-group">
+                                                                            <label for="location">Location: </label>
+                                                                            <select name="location" type="text" id="role" placeholder="Location" value=<%= add_fish_body.location %> required>
+                                                                                <% locations.forEach(location => { %>
+                                                                                    <option value=<%= location.id %>>
+                                                                                        <%= location.name %>
+                                                                                    </option>
+                                                                                <% }) %>
+                                                                            </select>
+                                                                        </p>
+                                                                        <p class="form-group">
+                                                                            <label for="caught_by">Caught By: </label>
+                                                                            <select name="caught_by" type="text" id="caught_by" placeholder="Caught by" value=<%= add_fish_body.caught_by %> required>
+                                                                                <% fishers.forEach(fisher => { %>
+                                                                                    <option value=<%= fisher.id %>>
+                                                                                        <%= fisher.local.account.username %>
+                                                                                    </option>
+                                                                                <% }) %>
+                                                                            </select>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-md-6">
+                                                                        <p>
+                                                                            <label for="date_caught">Date Caught: </label>
+                                                                            <input type="date" name="date_caught" id="date_caught" value=<%= add_fish_body.date_caught %> required>
+                                                                        </p>
+                                                                        <p>
+                                                                            <label for="weight">Weight (kg): </label>
+                                                                            <input name="weight" type="number" id="weight" placeholder="Weight" minlength="1" maxlength="5" value=<%= add_fish_body.weight %> required>
+                                                                        </p>
+                                                                        <p>
+                                                                            <label for="fish_description">Description: </label>
+                                                                            <input name="description" type="text" id="fish_description" placeholder="Description" minlength="5" maxlength="50" value=<%= add_fish_body.description %> required>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="admin_img_div form-group">
+                                                                        <label class="fish_img_label" >Upload Picture</label>
+                                                                        <input id="fish_images" name="fish_images" type="file" onchange="previewFishFiles()" accept="image/gif, image/jpeg, image/png" multiple>
+                                                                        <div id="fish_preview"></div>
+                                                                        <button type="submit">Add</button>
+                                                                    </div>
+                                                            </section>
+                                                        <% } %>
+                                                    <% } else { %>
+                                                        <section class="add_fish_section">
+                                                            <hr>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p class="form-group">
+                                                                        <label for="species">Fish Species: </label>
+                                                                        <select name="species" type="text" id="role" placeholder="Species">
+                                                                            <% fish_species.forEach(type => { %>
+                                                                                <option value=<%= type.id %>>
+                                                                                    <%= type.name %>
+                                                                                </option>
+                                                                            <% }) %>
+                                                                        </select>
+                                                                    </p>
+                                                                    <p class="form-group">
+                                                                        <label for="location">Location: </label>
+                                                                        <select name="location" type="text" id="role" placeholder="Location">
+                                                                            <% locations.forEach(location => { %>
+                                                                                <option value=<%= location.id %>>
+                                                                                    <%= location.name %>
+                                                                                </option>
+                                                                            <% }) %>
+                                                                        </select>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-xs-12 col-md-6">
+                                                                    <p>
+                                                                        <label for="date_caught">Date Caught: </label>
+                                                                        <input type="date" name="date_caught" id="date_caught" required>
+                                                                    </p>
+                                                                    <p>
+                                                                        <label for="weight">Weight (kg): </label>
+                                                                        <input name="weight" type="number" id="weight" placeholder="Weight" minlength="1" maxlength="5" required>
+                                                                    </p>
+                                                                    <p>
+                                                                        <label for="fish_description">Description: </label>
+                                                                        <input name="description" type="text" id="fish_description" placeholder="Description" minlength="5" maxlength="50" required>
+                                                                    </p>
+                                                                    <p>
+                                                                        <label for="fish_external_ref">External reference: </label>
+                                                                        <input name="external_ref" type="text" id="fish_external_ref" placeholder="External reference" minlength="5" maxlength="50">
+                                                                    </p>  
+                                                                </div>
+                                                                <div class="admin_img_div form-group">
+                                                                    <label class="fish_img_label" >Upload Picture</label>
+                                                                    <input id="fish_images" name="fish_images" type="file" onchange="previewFishFiles()" accept="image/gif, image/jpeg, image/png" multiple>
+                                                                    <div id="fish_preview"></div>
+                                                                    <button type="submit">Add</button>
+                                                                </div>
+                                                        </section>
+                                                    <% } %>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="my_fish_div col-xs-12">
+                                            <% if(typeof(myFish) != 'undefined') { %>
+                                                <% if(myFish.length != 0) { %>
+                                                    <% myFish.forEach(species => { %>
+                                                        <h2 class="title_h2">
+                                                            <%= species[0].species.name%>
+                                                        </h2>
+                                                        <% species.forEach(fish => { %>
+                                                            <div class="row">
+                                                                <div class="col-xs-12 swipe_div" id="swipe_div_container">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-8">
+                                                                            <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
+                                                                                <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images[0] %> title=<%="/img/fish/" + fish.images[0] %> class="img-responsive my_fish_img">
+                                                                            </a>
+                                                                            <div class="fish_wrapper row">
+                                                                                <div class="profile_left fish_left col-xs-4">
+                                                                                    <p>
+                                                                                        <span class="label_span">Species: </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span class="label_span" width="100">Weight: </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span class="label_span" width="100">Location: </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span class="label_span">Date Caught: </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span class="label_span">Caught By: </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span class="label_span">Description: </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="profile_right fish_right col-xs-8">
+                                                                                    <p>
+                                                                                        <a id="type_a" href=<%= "/singleFishSpecies/" + fish.species._id %> alt=<%= "/singleFishSpecies/" + fish.species._id %> title=<%= "/singleFishSpecies/" + fish.species._id %> >
+                                                                                            <%= fish.species.name %>
+                                                                                        </a>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span id="weight_span">
+                                                                                            <%= fish.weight %> kg
+                                                                                        </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span>
+                                                                                            <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
+                                                                                                <%= fish.location.name %>
+                                                                                            </a>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span id="date_caught_span">
+                                                                                            <a href=<%= "/loadSingleDate/" + fish.date_caught %> title=<%= "/loadSingleDate/" + fish.date_caught %> alt=<%= "/loadSingleDate/" + fish.date_caught %> >
+                                                                                                <%= fish.date_caught %>
+                                                                                            </a>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span id="caught_by_span">
+                                                                                            <%= fish.caught_by.local.account.username %>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                                        <span id="description_span">asdfsadf<%= fish.description %></span>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xs-4 my_fish_btn_div" >
+                                                                            <button class="edit_imgs" id=<%= fish.id %> onclick="edit_fish_images(this.id)">
+                                                                                <i class="bi bi-image"></i>
+                                                                            </button>
+                                                                            <button class="edit" id=<%= fish.id %> onclick="edit_fish(this.id)">
+                                                                                <i class="bi bi-wrench"></i>
+                                                                            </button>
+                                                                            <button class="delete" id=<%= fish.id %> onclick="delete_fish(this.id)">
+                                                                                <i class="bi bi-x-square"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <% }) %>
+                                                    <% }) %>
+                                                <% } %>
+                                            <%} %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-12">
                             <div class="row">
                                 <div id="edit_div" class="col-xs-12 hidden">
                                     
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 add_fish_profile_div">
-                            <button class="add_fish_btn">Add Fish </button>
-                            <% if(typeof(add_fish_body) != 'undefined') { %>
-                                <div class="add_fish_div">
-                            <% } else { %>
-                                <div class="add_fish_div hidden">
-                            <% }%>
-                                <form id="new_fish_form" method="post" action="/admin/fish/addFish" enctype="multipart/form-data" novalidate>
-                                    <% if(typeof(add_fish_body) != 'undefined') { %>
-                                        <% if(add_fish_body) { %>
-                                            <section class="add_fish_section">
-                                                <hr>
-                                                    <div class="col-xs-12 col-md-6">
-                                                        <p class="form-group">
-                                                            <label for="species">Fish Species: </label>
-                                                            <select name="species" type="text" id="role" placeholder="Species" value=<%= add_fish_body.species %> required>
-                                                                <% fish_species.forEach(type => { %>
-                                                                    <option value=<%= type.id %>>
-                                                                        <%= type.name %>
-                                                                    </option>
-                                                                <% }) %>
-                                                            </select>
-                                                        </p>
-                                                        <p class="form-group">
-                                                            <label for="location">Location: </label>
-                                                            <select name="location" type="text" id="role" placeholder="Location" value=<%= add_fish_body.location %> required>
-                                                                <% locations.forEach(location => { %>
-                                                                    <option value=<%= location.id %>>
-                                                                        <%= location.name %>
-                                                                    </option>
-                                                                <% }) %>
-                                                            </select>
-                                                        </p>
-                                                        <p class="form-group">
-                                                            <label for="caught_by">Caught By: </label>
-                                                            <select name="caught_by" type="text" id="caught_by" placeholder="Caught by" value=<%= add_fish_body.caught_by %> required>
-                                                                <% fishers.forEach(fisher => { %>
-                                                                    <option value=<%= fisher.id %>>
-                                                                        <%= fisher.local.account.username %>
-                                                                    </option>
-                                                                <% }) %>
-                                                            </select>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-xs-12 col-md-6">
-                                                        <p>
-                                                            <label for="date_caught">Date Caught: </label>
-                                                            <input type="date" name="date_caught" id="date_caught" value=<%= add_fish_body.date_caught %> required>
-                                                        </p>
-                                                        <p>
-                                                            <label for="weight">Weight (kg): </label>
-                                                            <input name="weight" type="number" id="weight" placeholder="Weight" minlength="1" maxlength="5" value=<%= add_fish_body.weight %> required>
-                                                        </p>
-                                                        <p>
-                                                            <label for="fish_description">Description: </label>
-                                                            <input name="description" type="text" id="fish_description" placeholder="Description" minlength="5" maxlength="50" value=<%= add_fish_body.description %> required>
-                                                        </p>
-                                                    </div>
-                                                    <div class="admin_img_div form-group">
-                                                        <label class="fish_img_label" >Upload Picture</label>
-                                                        <input id="fish_images" name="fish_images" type="file" onchange="previewFishFiles()" accept="image/gif, image/jpeg, image/png" multiple>
-                                                        <div id="fish_preview"></div>
-                                                        <button type="submit">Add</button>
-                                                    </div>
-                                            </section>
-                                        <% } %>
-                                    <% } else { %>
-                                        <section class="add_fish_section">
-                                            <hr>
-                                                <div class="col-xs-12 col-md-6">
-                                                    <p class="form-group">
-                                                        <label for="species">Fish Species: </label>
-                                                        <select name="species" type="text" id="role" placeholder="Species">
-                                                            <% fish_species.forEach(type => { %>
-                                                                <option value=<%= type.id %>>
-                                                                    <%= type.name %>
-                                                                </option>
-                                                            <% }) %>
-                                                        </select>
-                                                    </p>
-                                                    <p class="form-group">
-                                                        <label for="location">Location: </label>
-                                                        <select name="location" type="text" id="role" placeholder="Location">
-                                                            <% locations.forEach(location => { %>
-                                                                <option value=<%= location.id %>>
-                                                                    <%= location.name %>
-                                                                </option>
-                                                            <% }) %>
-                                                        </select>
-                                                    </p>
-                                                </div>
-                                                <div class="col-xs-12 col-md-6">
-                                                    <p>
-                                                        <label for="date_caught">Date Caught: </label>
-                                                        <input type="date" name="date_caught" id="date_caught" required>
-                                                    </p>
-                                                    <p>
-                                                        <label for="weight">Weight (kg): </label>
-                                                        <input name="weight" type="number" id="weight" placeholder="Weight" minlength="1" maxlength="5" required>
-                                                    </p>
-                                                    <p>
-                                                        <label for="fish_description">Description: </label>
-                                                        <input name="description" type="text" id="fish_description" placeholder="Description" minlength="5" maxlength="50" required>
-                                                    </p>
-                                                    <p>
-                                                        <label for="fish_external_ref">External reference: </label>
-                                                        <input name="external_ref" type="text" id="fish_external_ref" placeholder="External reference" minlength="5" maxlength="50">
-                                                    </p>  
-                                                </div>
-                                                <div class="admin_img_div form-group">
-                                                    <label class="fish_img_label" >Upload Picture</label>
-                                                    <input id="fish_images" name="fish_images" type="file" onchange="previewFishFiles()" accept="image/gif, image/jpeg, image/png" multiple>
-                                                    <div id="fish_preview"></div>
-                                                    <button type="submit">Add</button>
-                                                </div>
-                                        </section>
-                                    <% } %>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="my_fish_div col-xs-12">
-                            <% if(typeof(myFish) != 'undefined') { %>
-                                <% if(myFish.length != 0) { %>
-                                    <h1>
-                                        My Fish
-                                    </h1>
-                                    <% myFish.forEach(species => { %>
-                                        <h2>
-                                            <%= species[0].species.name%>
-                                        </h2>
-                                        <% species.forEach(fish => { %>
-                                            <div class="row">
-                                                <div class="col-xs-12 swipe_div">
-                                                    <div class="row">
-                                                        <div class="col-xs-8">
-                                                            <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
-                                                                <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images[0] %> title=<%="/img/fish/" + fish.images[0] %> class="img-responsive my_fish_img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="my_fish_btn_div col-xs-4">
-                                                            <button class="delete glyphicon glyphicon-remove" id=<%= fish.id %> onclick="delete_fish(this.id)"></button>
-                                                            <button class="wrench glyphicon glyphicon-wrench" id=<%= fish.id %> onclick="edit_fish(this.id)"></button>
-                                                            <button class="wrench glyphicon glyphicon-picture" id=<%= fish.id %> onclick="edit_fish_images(this.id)"></button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-xs-12">
-                                                            <article>
-                                                                <section>
-                                                                    <p>
-                                                                        <span class="label_span">Description: </span><span id="description_span"><%= fish.description%></span>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span class="label_span">Species: </span>
-                                                                        <a id="type_a" href=<%= "/singleFishSpecies/" + fish.species._id %> alt=<%= "/singleFishSpecies/" + fish.species._id %> title=<%= "/singleFishSpecies/" + fish.species._id %> >
-                                                                            <%= fish.species.name%>
-                                                                        </a>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span class="label_span" width="100">Weight: </span><span id="weight_span">
-                                                                            <%= fish.weight %> kg
-                                                                        </span>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span class="label_span" width="100">Location: </span>
-                                                                        <span>
-                                                                            <a id="location_a" href=<%= "/singleLocation/" + fish.location._id %> title=<%= "/singleLocation/" + fish.location._id %> alt=<%= "/singleLocation/:" + fish.location._id %> >
-                                                                                <%= fish.location.name %>
-                                                                            </a>
-                                                                        </span>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span class="label_span">Date Caught: </span><span id="date_caught_span">
-                                                                            <a href=<%= "/loadSingleDate/" + fish.date_caught %> title=<%= "/loadSingleDate/" + fish.date_caught %> alt=<%= "/loadSingleDate/" + fish.date_caught %> >
-                                                                                <%= fish.date_caught %>
-                                                                            </a>
-                                                                        </span>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span class="label_span">Caught By: </span><span id="caught_by_span">
-                                                                            <%= fish.caught_by.local.account.username %>
-                                                                        </span>
-                                                                    </p>
-                                                                </section>
-                                                            </article>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <% }) %>
-                                    <% }) %>
-                                <% } %>
-                            <%} %>
                         </div>
                     <% } %>
                 </div>

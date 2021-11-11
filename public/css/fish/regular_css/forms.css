@@ -181,7 +181,7 @@ input, button {
 
 .profile_p_section input, .password_form input {
     color: white;
-    background-color: black;
+    background-color: rgba(34,34,34,0.4);
 }
 
 .option_a {
@@ -198,7 +198,7 @@ input, button {
 }
 
 #newsletter_form input, button {
-    color: black;
+    color: black !important;
 }
 #newsletter_div h2 {
     width: 40%;

@@ -280,7 +280,7 @@ function edit_fish_images(id) {
             document.querySelector('.remove_images_div').innerHTML += `
                 <div>
                     <button onclick="remove_image('${img}', '${fish[0]._id}', this)">
-                        <img src="/img/fish/${img}" alt="/img/fish/${img}" title="/img/fish/${img}">
+                        <img src="/img/fish/fish/${img}" alt="/img/fish/fish/${img}" title="/img/fish/fish/${img}">
                     </button>
                 </div>
             `;

@@ -11,11 +11,11 @@
                 </div>
                 <div class="center col-xs-12">
                     <% if(typeof(singleLocation) != "undefined") { %>
+                        <h1 class="margin_bottom_40px">
+                            <%= singleLocation.location[0].name %>
+                        </h1>
                         <div class="swipe_div">
                             <a id="type_a" href=<%= "/locations/getSingleLocation/" + singleLocation.location[0]._id %> alt=<%= "/locations/getSingleLocation/" + singleLocation.location[0]._id %> title=<%= "/locations/getSingleLocation/" + singleLocation.location[0]._id %> >
-                                <h1 class="margin_bottom_40px">
-                                    <%= singleLocation.location[0].name %>
-                                </h1>
                                 <img src=<%="/img/fish/locations/" + singleLocation.location[0].images[0] %> alt=<%="/img/locations/" + singleLocation.location[0].images[0] %> title=<%="/img/locations/" + singleLocation.location[0].images[0] %> class="img-responsive latest_img">
                             </a>
                             <div class="fish_wrapper row">
@@ -109,11 +109,13 @@
                         <% if(locations.length != 0) { %>
                             <h1>Locations</h1>
                             <% locations.forEach(location => { %>
+                                <a id="type_a" href=<%= "/locations/getSingleLocation/" + location._id %> alt=<%= "/locations/getSingleLocation/" + location._id %> title=<%= "/locations/getSingleLocation/" + location._id %> >
+                                    <h2 class="margin_bottom_40px title_h2">
+                                        <%= location.name%>
+                                    </h2>
+                                </a>
                                 <div class="swipe_div">
                                     <a id="type_a" href=<%= "/locations/getSingleLocation/" + location._id %> alt=<%= "/locations/getSingleLocation/" + location._id %> title=<%= "/locations/getSingleLocation/" + location._id %> >
-                                        <h2 class="margin_bottom_40px location_name_title">
-                                            <%= location.name%>
-                                        </h2>
                                         <img src=<%="/img/fish/locations/" + location.images[0] %> alt=<%="/img/locations/" + location.images[0] %> title=<%="/img/locations/" + location.images[0] %> class="img-responsive latest_img">
                                     </a>
                                     <div class="fish_wrapper row">

@@ -11,12 +11,50 @@
                         <% include ../../partials/form_errors %>
                     </p>
                     <% if(user) { %>
-                    <div class="profile_div">
-                        <form class="password_form">
-                                <section class="password_section">
+                        <div class="col-xs-12">
+                            <nav class="navbar navbar-expand-xl navbar-light bg-light" id="profile_nav">
+                                <a class="navbar-brand" href="/fish/user/profile" id="home_link_fish">
+                                    <div id="heading_container">
+                                        <h2 class="profile_h2">
+                                            <%= user.local.account.username %>
+                                        </h2>
+                                        <p class="profile_heading_span"><%= user.local.role %></p>
+                                    </div>
+                                </a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav justify-content-end">
+                                        <li role="dropdown-item presentation">
+                                            <a class="nav-link override_background" href="/fish/user/profile/myFish">
+                                                My Fish
+                                            </a>
+                                        </li>
+                                        <li role="dropdown-item presentation">
+                                            <a class="nav-link override_background" href="/fish/user/profile/socialNetworking">
+                                                Socials
+                                            </a>
+                                        </li>
+                                        <li role="dropdown-item presentation">
+                                            <a class="nav-link override_background" href="/fish/user/profile/security">
+                                                Security
+                                            </a>
+                                        </li>
+                                        <li role="dropdown-item presentation">
+                                            <a class="nav-link override_background" href="/fish/user/profile/edit_preferences">
+                                                Preferences & Privacy
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="profile_div">
+                                <form class="password_form">
                                     <div class="password_div">
-                                        <section class="password_p_section">
-                                        <h1 class="password_heading">Change Password</h1>
+                                        <h1 class="my_fish_h1_inverse">Change Password</h1>
                                         <h2 class="password_heading">Enter Old Password</h2>
                                         <p>
                                             <label for="old_password" class="password_label">Old password: </label>
@@ -37,11 +75,11 @@
                                         <p>
                                             <span class="error_msg_span" id="new_pw_span"></span>
                                         </p>
-                                        <button id="submit_old_pw_btn" class="password_ok">Submit Old Password</button>
+                                        <button id="submit_old_pw_btn" class="password_ok">Submit</button>
                                     </div>
-                                </section>
-                            </form>
-                    </div>
+                                </form>
+                            </div>
+                        </div>
                     <% } %>
                 </div>
                 <% include ../../partials/footer %>

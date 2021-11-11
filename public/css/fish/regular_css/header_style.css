@@ -1,20 +1,15 @@
-header {
-    /* background-color: black !important; */
-    background-color: rgba(0,0,0,0.9);
-    /* width: 100%; */
-}
-
-.container {
-    /* background-color: black !important; */
-    /* background-color: rgba(0,0,0,0.6); */
-    /* width: 100%; */
-}
-
 .navbar-light .navbar-toggler {
     background-color: white;
     color: rgba(0,0,0,1);
-    /* border-color: rgba(0,0,0,1); */
-    border: 3px solid rgba(0,0,0,1);
+    border: 5px solid rgba(0,0,0,1);
+    height: 80px;
+    width: 80px;
+    margin-right: 25px;
+}
+
+.navbar-toggler-icon {
+    height: 50px;
+    width: 50px;
 }
 
 .container {
@@ -23,27 +18,18 @@ header {
     margin-left: auto;
 }
 
-.container, 
-.col-xs-12 {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-}
- 
-.navbar-expand-md .navbar-nav {
-    /* width: 100%; */
-}
-
 #home_link_fish {
-    font-size: 400%;
+    color: rgba(256,128,0,1) !important;
+    font-size: 650%;
     font-weight: bold;
-    text-shadow: 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1), 0 0 3px rgba(256, 126, 0, 1);
+    text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white;
     padding-top: 0 !important;
 }
 
 #home_link_fish:hover {
-    color: rgba(256, 126, 0, 1);
+    color: white !important;
     background-color: rgba(256, 126, 0, 0);
-    text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white;
+    text-shadow: 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1), 0 0 3px rgba(256,128,0,1);
 }
 
 #navbar_searchbar {
@@ -58,6 +44,8 @@ header {
 
 .navbar-nav {
     text-align: center !important;
+    width: 95%;
+    margin-left: 40px;
 }
 
 header a {
@@ -75,17 +63,15 @@ header a:hover {
     color: rgba(256, 126, 0, 1) !important;
 }
 
-.navbar-expand-md .navbar-nav .dropdown-menu {
-    background-color: rgba(34,34,34,1) !important;
-}
-
-.navbar-expand-md .navbar-nav .dropdown-menu li {
+.navbar-expand-xl .navbar-nav .dropdown-menu li {
     padding: 0;
 }
 
-.navbar-expand-md .navbar-nav .dropdown-menu li,
-.navbar-expand-md .navbar-nav .dropdown-menu li a:hover {
-    color: rgba(34,34,34,1) !important;
+.navbar-expand-xl .navbar-nav .dropdown-menu li,
+.navbar-expand-xl .navbar-nav .dropdown-menu li a:hover {
+    /* color: rgba(34,34,34,0.75) !important; */
+    background-image: none !important;
+    background-color: rgba(34,34,34,0) !important;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -101,36 +87,44 @@ header a:hover {
     color: rgba(255,255,255,1) !important;
 }
 
-.navbar-expand-md .navbar-nav .nav-link {
+.navbar-expand-xl .navbar-nav .dropdown-menu {
+    background-color: rgba(34,34,34,0.95) !important;
+}
+
+.navbar-nav .nav-link {
     font-weight: bold;
-    padding: 15px;
-    margin: 5px;
-    background-color: rgba(34,34,34,1) !important;
+    padding: 35px !important;
+    margin: 7.5px;
+    background-color: rgba(34,34,34,0.9) !important;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.dropdown-item .nav-link {
+.navbar-nav .nav-link:focus,
+ .navbar-nav .nav-link:hover {
+    color: rgba(256,128,0,1) !important;
+    background-color: rgba(34,34,34,0.75) !important;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .dropdown-item:hover {
     color: rgba(34,34,34,1) !important;
     text-decoration: none;
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: rgba(34,34,34,0.75) !important;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
+.dropdown-item, .dropdown-item .nav-link {
+    background-color: rgba(124,124,124,0.5) !important;
+    text-align: right !important;
+}
+
 .dropdown-item:focus, .dropdown-item:hover {
     color: white;
-    /* text-decoration: none; */
-    background-color: rgba(34,34,34,1);
-}
- .navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
-    color: rgba(256, 126, 0, 1) !important;
-    background-color: rgba(124,124,124,1) !important;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /* background-color: rgba(34,34,34,0) !important; */
 }
 
 .dropdown-menu {

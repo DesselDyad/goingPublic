@@ -7,21 +7,16 @@
 }
 
 header a:hover {
-    background-color: rgba(34,34,34,1);
+    background-color: rgba(34,34,34,0.75);
 }
 
 .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
-    background-color: rgba(34,34,34,1);
+    background-color: rgba(34,34,34,0);
 }
 
 .navbar {
-    /* background-color: rgba(34,34,34,0.8); */
     padding: 20px;
     background-image: url("../../../img/fish/swipe_background_3.jpg");
-}
-
-.operations_div, #operations-collapse {
-    background-color: rgba(34,34,34,0.7);
 }
 
 .navbar {
@@ -38,10 +33,15 @@ header a:hover {
     display: block;
 }
 .dropdown-submenu {
-    position:relative;
+    position: relative;
 }
 .dropdown-submenu>.dropdown-menu {
     top:0;
     left:100%;
     margin-top:-6px;
+}
+
+.profile_dropdown_list {
+    left: -225px;
+    text-align: right;
 }

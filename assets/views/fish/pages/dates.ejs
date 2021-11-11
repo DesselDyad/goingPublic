@@ -11,10 +11,15 @@
                 </div>
                 <div class="center col-xs-12">
                     <% if(typeof(singleDate) != 'undefined') { %>
-                        <h1>Fishes caught on: <%= singleDate[0].date_caught %></h1>
+                        <h1>Fishes caught on: </h1>
+                        <a href=<%= "/loadSingleDate/" + singleDate[0].date_caught %> alt=<%= "/loadSingleDate/" + singleDate[0].date_caught %> title=<%= "/loadSingleDate/" + singleDate[0].date_caught %> >
+                            <h2 class="margin_bottom_40px title_h2"> 
+                                <%= singleDate[0].date_caught %>
+                            </h2>
+                        </a>
                         <% singleDate.forEach(fish => { %>
                             <div class="swipe_div">
-                                <a href=<%="/singleFish/" + fish._id %> alt=<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
+                                <a href=<%="/singleFish/" + fish._id %> alt =<%="/singleFish/" + fish._id %> title=<%="/singleFish/" + fish._id %> >
                                     <img src=<%="/img/fish/fish/" + fish.images[0] %> alt=<%="/img/fish/" + fish.images %> title=<%="/img/fish/" + fish.images %> class="img-responsive latest_img">
                                 </a>
                                 <div class="fish_wrapper row">
@@ -79,8 +84,8 @@
                         <% if(dates.length != 0) { %>
                             <h1>Dates</h1>
                             <% dates.forEach(date => { %>
-                                <p>
-                                    <a id="type_a" href=<%= "/loadSingleDate/" + date %> alt=<%= "/loadSingleDate/" + date %> title=<%= "/loadSingleDate/" + date %> >
+                                <p class="title_h2">
+                                    <a class="date_a" href=<%= "/loadSingleDate/" + date %> alt=<%= "/loadSingleDate/" + date %> title=<%= "/loadSingleDate/" + date %> >
                                         <%= date %>
                                     </a>
                                 </p>
