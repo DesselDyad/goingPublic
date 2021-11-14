@@ -235,3 +235,10 @@ function delete_user() {
         })
     }
 }
+
+function toggle_visible(id) {
+    let div = document.getElementById(id);
+    document.getElementById(id + '_icon').classList.toggle('bi-chevron-up');
+    document.getElementById(id + '_icon').classList.toggle('bi-chevron-down');
+    document.getElementById(id + '_fish_wrapper').classList.toggle('hidden');
+}

@@ -1,3 +1,4 @@
+
 #nav_burger_btn {
     border: 2px solid black;
 }
@@ -15,7 +16,9 @@ header a:hover {
 }
 
 .navbar {
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 0;
+    margin: 0;
     background-image: url("../../../img/fish/swipe_background_3.jpg");
 }
 
@@ -25,7 +28,7 @@ header a:hover {
 }
 
 .navbar-right {
-    margin-right: 15px;
+    /* margin-right: 15px; */
 }
 
 
@@ -42,6 +45,6 @@ header a:hover {
 }
 
 .profile_dropdown_list {
-    left: -225px;
+    left: -90px;
     text-align: right;
 }

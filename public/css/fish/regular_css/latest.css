@@ -7,7 +7,7 @@
 }
 
 .latest_img {
-  width: 85%;
+  width: 95%;
   border-radius: 10px;
   box-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white, 0 0 10px white;
   margin: auto;
@@ -24,24 +24,40 @@
     box-shadow: 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1), 0 0 10px rgba(256,128,0,1);
 }
 
-.fish_right{
-  text-align: left;
-  text-decoration: none;
-  color: white;
+.fish_right,
+.fish_right a {
+  /* text-decoration: none; */
+  color: white !important;
 }
+
+.fish_right a {
+  text-decoration: underline;
+}
+
 .fish_left {
-  text-align: right;
+  /* text-align: right; */
   color: rgba(256, 128, 0, 1);
 }
 
 .fish_right,
 .fish_left {
-  font-size: 150%;
+  text-align: left;
+  font-size: 100%;
 }
 
 .fish_wrapper {
-  padding: 20px;
-  width: 75%;
+  padding: 40px;
+  width: 65%;
   margin: auto;
   background-color: rgba(24, 24, 24, 0.85);
+}
+
+.fish_wrapper .row:nth-child(2n) {
+  background-color: rgba(124, 124, 124, 0.55);
+  padding: 5px;
+}
+
+.fish_wrapper .row:nth-child(2n+1) {
+  background-color: rgba(74, 74, 74, 0.55);
+  padding: 5px;
 }

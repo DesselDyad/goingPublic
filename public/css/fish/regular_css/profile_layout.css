@@ -12,8 +12,9 @@
 .my_fish_img {
     border-radius: 10px;
     box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
-    margin: 40px 0 40px 95px;
-    width: 80%;
+    margin: 40px 0 40px 40px;
+    width: 75%;
+    /* margin: auto; */
 }
 
 .my_fish_img:hover {
@@ -71,21 +72,140 @@
 
 .my_fish_btn_div {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profile_left,
+.profile_right {
+    font-size: 100% !important;
+    /* padding: 10px; */
+}
+
+.my_fish_toggle_btn {
+    width: 20%;
+    margin: auto;
+    /* margin-left: 40%; */
+}
+
+.my_fish_toggle_btn_profile {
+    width: 20%;
+    margin: auto;
+    margin-left: 40%;
+}
+
+.my_fish_toggle_btn > i {
+    font-size: 300%;
+    color: black;
+}
+
+.my_fish_toggle_btn:hover > i,
+.my_fish_toggle_btn:hover {
+    color: white;
+    background-color: black !important;
+    cursor: pointer;
+}
+
+.my_fish_toggle_btn_profile > i {
+    font-size: 300%;
+    color: black;
+}
+
+.my_fish_toggle_btn_profile:hover > i,
+.my_fish_toggle_btn_profile:hover {
+    color: white;
+    background-color: black !important;
+    cursor: pointer;
+}
+
+@media (min-width: 385px) {
+    .profile_left,
+    .profile_right {
+        font-size: 100% !important;
+        padding: 10px;
+    }
+
+    .my_fish_img {
+        border-radius: 10px;
+        box-shadow: 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white, 0 0 15px white;
+        margin: 40px 0 40px 50px;
+        width: 80%;
+    }
+
+    i {
+        color: white;
+        font-size: 300%;
+        font-weight: bold;
+        padding: 10px;
+    }
+    
+    .edit_imgs {
+        border: 5px solid white;
+        border-radius: 5px;
+        margin: 10px;
+        border-radius: 10px;
+        background-color: purple;
+        height: 90px !important;
+        width: 90px !important;
+        flex-shrink: 0;
+    }
+    
+    .edit_imgs:hover {
+        cursor: pointer;
+        background-color: violet;
+    }
+    
+    .delete {
+        border: 5px solid white;
+        border-radius: 5px;
+        margin: 10px;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        height: 90px !important;
+        width: 90px !important;
+        flex-shrink: 0;
+    }
+    
+    .delete:hover {
+        cursor: pointer;
+        background-color: tomato;
+    }
+    
+    .edit {
+        border: 5px solid white;
+        border-radius: 5px;
+        margin: 10px;
+        border-radius: 10px;
+        color: white;
+        background-color: rgb(29, 238, 238);
+        height: 90px !important;
+        width: 90px !important;
+        flex-shrink: 0;
+    }
+    
+    .edit:hover {
+        cursor: pointer;
+        background-color: blue;
+    }
 }
 
 i {
     color: white;
-    font-size: 300%;
+    font-size: 150%;
     font-weight: bold;
-    padding: 10px;
+    padding: 5px;
 }
 
 .edit_imgs {
-    border: 5px solid white;
+    border: 4px solid white;
     border-radius: 5px;
     margin: 10px;
-    border-radius: 10px;
     background-color: purple;
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
 }
 
 .edit_imgs:hover {
@@ -97,9 +217,11 @@ i {
     border: 5px solid white;
     border-radius: 5px;
     margin: 10px;
-    border-radius: 10px;
     color: white;
     background-color: red;
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
 }
 
 .delete:hover {
@@ -111,9 +233,11 @@ i {
     border: 5px solid white;
     border-radius: 5px;
     margin: 10px;
-    border-radius: 10px;
     color: white;
     background-color: rgb(29, 238, 238);
+    height: 50px;
+    width: 50px;
+    flex-shrink: 0;
 }
 
 .edit:hover {
@@ -220,7 +344,7 @@ i {
 
 
 #profile_link {
-    padding: 10px !important;
+    padding: 5px !important;
 }
 
 #profile_nav {
@@ -231,6 +355,20 @@ i {
     margin-right: -90px;
 }
 
+#profile_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+@media (min-width: 391px) {
+    #profile_nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 #profile_nav .nav-link {
     padding: 20px !important;
     margin-top: -20px;
@@ -239,7 +377,7 @@ i {
 }
 
 #profile_link img {
-    height: 85px;
+    height: 50px;
 }
 
 .halves {
@@ -271,7 +409,7 @@ i {
 }
 
 .profile_content_container {
-    width: 100%;
+    width: 90% !important;
     height: 300%;
     background-image: url('../../../img/fish/cork2.jpg');
     background-repeat: no-repeat;
@@ -281,8 +419,8 @@ i {
 }
 
 .profile_content_container p {
-    width: 40%;
-    margin: auto;
+    /* width: 50%; */
+    /* margin: auto; */
     margin-bottom: 25px;
     margin-top: 25px;
     padding: 15px;
@@ -292,12 +430,6 @@ i {
     background-color: rgba(56,28,0,.85);
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
-}
-
-.profile_left,
-.profile_right {
-    font-size: 100% !important;
-    padding: 10px;
 }
 
 .profile_label,

@@ -15,13 +15,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav justify-content-end">
                 <li role="dropdown-item presentation">
-                    <a class="nav-link override_background" href="/fishbuddy">FishBuddy </a>
+                    <a class="nav-link override_background" href="/fishbuddy">
+                        <i class="bi bi-globe"></i>
+                        FishBuddy
+                    </a>
                 </li>
                 <li role="dropdown-item presentation">
-                    <a class="nav-link override_background" href="/fish">Fish </a>
+                    <a class="nav-link override_background" href="/fish">
+                        <i class="bi bi-camera"></i>
+                        Fish
+                    </a>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link override_background" href="/fish_species">Fish Species</a>
+                    <a class="nav-link override_background" href="/fish_species">
+                        <i class="bi bi-camera"></i>
+                        Fish Species
+                    </a>
                     <ul class="dropdown-menu">
                         <% fish_species.forEach(species => { %>
                             <li class="dropdown-item">
@@ -33,7 +42,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link override_background" href="/locations">Locations</a>
+                    <a class="nav-link override_background" href="/locations">
+                        <i class="bi bi-geo-alt"></i>
+                        Locations
+                    </a>
                     <ul class="dropdown-menu">
                         <% locations.forEach(location => { %>
                             <li class="dropdown-item">
@@ -45,7 +57,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link override_background" href="/dates">Dates</a>
+                    <a class="nav-link override_background" href="/dates">
+                        <i class="bi bi-calendar3"></i>
+                        Dates
+                    </a>
                     <ul class="dropdown-menu">
                         <% dates.forEach(date => { %>
                             <li class="dropdown-item">
@@ -57,7 +72,12 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link override_background" href="/records">Records</a>
+                    <a class="nav-link override_background" href="/records">
+                        <strong>
+                            <i class="bi bi-trophy"></i>
+                        </strong>
+                        Records
+                    </a>
                     <ul class="dropdown-menu">
                         <% fish_species.forEach(species => { %>
                             <li class="dropdown-item">
@@ -106,11 +126,11 @@
                                 Preferences & Privacy
                             </a>
                         </li>
-                        <li class="dropdown-item">
+                        <!-- <li class="dropdown-item">
                             <a href="/fish/user/profile/edit_personal_info" class="nav-link">
                                 Edit personal information
                             </a>
-                        </li>
+                        </li> -->
                         <li class="dropdown-item">
                             <a class="nav-link" href="/user/logout">Logout</a>
                         </li>
